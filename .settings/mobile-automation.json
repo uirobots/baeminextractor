@@ -1,0 +1,33 @@
+{
+  "GenerateCrossPlatformAttributes": false,
+  "GenerateSelectorsForInnerElements": true,
+  "Connections": [
+    {
+      "Name": "CharlseS9+",
+      "Description": null,
+      "Url": "http://localhost:10001/wd/hub",
+      "PlatformName": "Android",
+      "PlatformVersion": "9",
+      "DeviceName": "CharelsS9+",
+      "SingleInstance": null,
+      "WaitForPageUpdate": true,
+      "Capabilities": {
+        "udid": "21349b70ff0c7ece"
+      },
+      "GeoLocation": null,
+      "LoggingModel": {
+        "LoggingEnabled": true,
+        "VideoRecordingEnabled": false,
+        "RecordingTimeLimit": 600,
+        "VideoQuality": 1,
+        "CollectScreenshot": 0,
+        "CollectPageSource": 0
+      }
+    }
+  ],
+  "Applications": [],
+  "NormalizeSliderValue": false,
+  "IdsMaxAllowedLength": 40,
+  "LogsPath": "%TEMP%\\UiPath Mobile Automation Logs",
+  "Variables": {}
+}
