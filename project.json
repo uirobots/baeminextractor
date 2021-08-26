@@ -3,13 +3,15 @@
   "description": "배달의민족 데이터 추출 ",
   "main": "Main.xaml",
   "dependencies": {
+    "System.Security.Cryptography.Algorithms": "[4.3.1]",
+    "System.Text.RegularExpressions": "[4.3.1]",
     "System.Xml.ReaderWriter": "[4.3.1]",
     "System.Xml.XDocument": "[4.3.0]",
     "UiPath.Excel.Activities": "[2.10.4]",
     "UiPath.Mail.Activities": "[1.10.5]",
-    "UiPath.MobileAutomation.Activities": "[21.4.3]",
-    "UiPath.System.Activities": "[21.4.1]",
-    "UiPath.UIAutomation.Activities": "[21.4.4]",
+    "UiPath.MobileAutomation.Activities": "[21.6.0-preview]",
+    "UiPath.System.Activities": "[21.6.1-preview]",
+    "UiPath.UIAutomation.Activities": "[21.6.1-preview]",
     "UiPath.WebAPI.Activities": "[1.7.0]"
   },
   "webServices": [],
