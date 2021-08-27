@@ -4,7 +4,7 @@
     <x:Property sap2010:Annotation.AnnotationText="카테고리$$메뉴이름$$가격 포맷의 리스트 순서가 중요함 " Name="CategoryMenuList" Type="InArgument(scg:List(x:String))" />
     <x:Property Name="MenuMap" Type="InArgument(scg:Dictionary(x:String, scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))))" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1536,3656</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1536,4662</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -82,7 +82,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="추출한 Dictionary 데이터를 DataTable에 추가 " DisplayName="MenuDT에 결과 데이터 업데이트 " sap:VirtualizedContainerService.HintSize="1546,3491" sap2010:WorkflowViewState.IdRef="Sequence_30">
+  <Sequence sap2010:Annotation.AnnotationText="추출한 Dictionary 데이터를 DataTable에 추가 " DisplayName="MenuDT에 결과 데이터 업데이트 " sap:VirtualizedContainerService.HintSize="1546,4497" sap2010:WorkflowViewState.IdRef="Sequence_30">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -90,13 +90,13 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="카테고리 메뉴 리스트에서는  카테고리$$메뉴$$가격 포맷으로 순서가 있는 리스트 존재 &#xD;&#xA;이 리스트 한개를 꺼내서 가운데 메뉴 이름을 이용해서 MenuMap에서 해당 메뉴에 연결된 옵션메뉴를 구하고 &#xD;&#xA;옵션 메뉴에서 Keys를 통해서 옵션그룹과 옵션그룹+&quot;.opt&quot; 를 구분해서 해당 옵션그룹에 있는 내용인 모든 옵션메뉴와 가격을 출력 한다. " DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1504,3213" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[CategoryMenuList]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="카테고리 메뉴 리스트에서는  카테고리$$메뉴$$가격 포맷으로 순서가 있는 리스트 존재 &#xD;&#xA;이 리스트 한개를 꺼내서 가운데 메뉴 이름을 이용해서 MenuMap에서 해당 메뉴에 연결된 옵션메뉴를 구하고 &#xD;&#xA;옵션 메뉴에서 Keys를 통해서 옵션그룹과 옵션그룹+&quot;.opt&quot; 를 구분해서 해당 옵션그룹에 있는 내용인 모든 옵션메뉴와 가격을 출력 한다. " DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1504,3597" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[CategoryMenuList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1468,3032" sap2010:WorkflowViewState.IdRef="Sequence_31">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1468,3416" sap2010:WorkflowViewState.IdRef="Sequence_31">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:String[]" Name="parts" />
               <Variable x:TypeArguments="x:String" Name="categoryName" />
@@ -165,7 +165,7 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[parts.Count]" sap:VirtualizedContainerService.HintSize="1426,51" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[parts.Count]" sap:VirtualizedContainerService.HintSize="1426,435" sap2010:WorkflowViewState.IdRef="Switch`1_2">
               <Switch.Default>
                 <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,253" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
                   <ui:MultipleAssign.AssignOperations>
@@ -215,7 +215,7 @@
                           <OutArgument x:TypeArguments="x:Object">[newRow(2)]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="x:Object">[price]</InArgument>
+                          <InArgument x:TypeArguments="x:Object">[Convert.ToInt32(price)]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                     </scg:List>
@@ -224,7 +224,7 @@
               </Switch.Default>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
@@ -423,7 +423,7 @@
                                                       <OutArgument x:TypeArguments="x:Object">[newRow("가격")]</OutArgument>
                                                     </ui:AssignOperation.To>
                                                     <ui:AssignOperation.Value>
-                                                      <InArgument x:TypeArguments="x:Object">[optMap( optMenu)]</InArgument>
+                                                      <InArgument x:TypeArguments="x:Object">[Convert.ToInt32( optMap( optMenu))]</InArgument>
                                                     </ui:AssignOperation.Value>
                                                   </ui:AssignOperation>
                                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_57">
@@ -431,7 +431,7 @@
                                                       <OutArgument x:TypeArguments="x:Object">[newRow("최소수량")]</OutArgument>
                                                     </ui:AssignOperation.To>
                                                     <ui:AssignOperation.Value>
-                                                      <InArgument x:TypeArguments="x:Object">[min]</InArgument>
+                                                      <InArgument x:TypeArguments="x:Object">[Convert.ToInt32(min)]</InArgument>
                                                     </ui:AssignOperation.Value>
                                                   </ui:AssignOperation>
                                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_58">
@@ -439,7 +439,7 @@
                                                       <OutArgument x:TypeArguments="x:Object">[newRow("최대수량")]</OutArgument>
                                                     </ui:AssignOperation.To>
                                                     <ui:AssignOperation.Value>
-                                                      <InArgument x:TypeArguments="x:Object">[max]</InArgument>
+                                                      <InArgument x:TypeArguments="x:Object">[Convert.ToInt32(max)]</InArgument>
                                                     </ui:AssignOperation.Value>
                                                   </ui:AssignOperation>
                                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_59">
@@ -547,7 +547,7 @@
                                                       <OutArgument x:TypeArguments="x:Object">[newOptOnlyRow("최소수량")]</OutArgument>
                                                     </ui:AssignOperation.To>
                                                     <ui:AssignOperation.Value>
-                                                      <InArgument x:TypeArguments="x:Object">[min]</InArgument>
+                                                      <InArgument x:TypeArguments="x:Object">[Convert.ToInt32(min)]</InArgument>
                                                     </ui:AssignOperation.Value>
                                                   </ui:AssignOperation>
                                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_64">
@@ -555,7 +555,7 @@
                                                       <OutArgument x:TypeArguments="x:Object">[newOptOnlyRow("최대수량")]</OutArgument>
                                                     </ui:AssignOperation.To>
                                                     <ui:AssignOperation.Value>
-                                                      <InArgument x:TypeArguments="x:Object">[max]</InArgument>
+                                                      <InArgument x:TypeArguments="x:Object">[Convert.toInt32(max)]</InArgument>
                                                     </ui:AssignOperation.Value>
                                                   </ui:AssignOperation>
                                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_65">
@@ -621,6 +621,43 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:WriteRange AddHeaders="True" DataTable="[MenuDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="1504,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="메뉴서식" StartingCell="A1" WorkbookPath="result.xlsx" />
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[string.Format( &quot;C:\Temp\Result-{0}.xlsx&quot;, DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;))]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="1504,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="False" Path="Data\Template\menu_template.xlsx" />
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1504,449" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[string.Format( &quot;C:\Temp\Result-{0}.xlsx&quot;, DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;))]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="376,340" sap2010:WorkflowViewState.IdRef="Sequence_38">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelAppendRange DataTable="[MenuDT]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelAppendRange_1" SheetName="메뉴서식" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;잠시 대기&quot;]" />
+            <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1504,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_39">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:WriteRange AddHeaders="True" DataTable="[MenuDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="메뉴서식" StartingCell="A1" WorkbookPath="result.xlsx" />
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
   </Sequence>
 </Activity>
