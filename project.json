@@ -12,13 +12,14 @@
     "UiPath.MobileAutomation.Activities": "[21.6.0-preview]",
     "UiPath.System.Activities": "[21.6.1-preview]",
     "UiPath.UIAutomation.Activities": "[21.6.1-preview]",
-    "UiPath.WebAPI.Activities": "[1.7.0]"
+    "UiPath.WebAPI.Activities": "[1.7.0]",
+    "UiPathTeam.AttendedRobotStatus.Activities": "[1.0.30]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "21.4.4.0",
-  "projectVersion": "1.0.0",
+  "projectVersion": "1.0.1",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -50,6 +51,12 @@
     {
       "filePath": "Main.xaml",
       "uniqueId": "192d9a36-aa05-450b-a376-3430583382c3",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "GetMainSourceDataFromApp.xaml",
+      "uniqueId": "c9d0769f-989b-4e94-b6c5-8fa664aac951",
       "input": [],
       "output": []
     }

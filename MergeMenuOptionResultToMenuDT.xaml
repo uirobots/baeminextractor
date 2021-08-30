@@ -1,13 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="MergeMenuOptionResultToMenuDT" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="MergeMenuOptionResultToMenuDT" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aa="clr-namespace:AttendedRobotStatus.Activities;assembly=AttendedRobotStatus" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="MenuDT" Type="InOutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="엑셀로 저장될 메뉴 데이터 테이블 " Name="MenuDT" Type="InOutArgument(sd:DataTable)" />
     <x:Property sap2010:Annotation.AnnotationText="카테고리$$메뉴이름$$가격 포맷의 리스트 순서가 중요함 " Name="CategoryMenuList" Type="InArgument(scg:List(x:String))" />
-    <x:Property Name="MenuMap" Type="InArgument(scg:Dictionary(x:String, scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))))" />
+    <x:Property sap2010:Annotation.AnnotationText="메뉴와 해당 메뉴에 딸란 옵션 메뉴 정보 " Name="MenuMap" Type="InArgument(scg:Dictionary(x:String, scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))))" />
+    <x:Property sap2010:Annotation.AnnotationText="매장 이름, 결과 파일은 매장이름-yyyy-mm-dd.xlsx 포맷으로 내문서 위치에 저장됨 " Name="StoreName" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1536,4662</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1536,4463</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="33">
+    <scg:List x:TypeArguments="x:String" Capacity="66">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System</x:String>
@@ -41,10 +42,11 @@
       <x:String>System.Net.Mail</x:String>
       <x:String>Microsoft.VisualBasic</x:String>
       <x:String>UiPath.Core</x:String>
+      <x:String>AttendedRobotStatus.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="35">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="70">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -80,9 +82,15 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>AttendedRobotStatus</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="추출한 Dictionary 데이터를 DataTable에 추가 " DisplayName="MenuDT에 결과 데이터 업데이트 " sap:VirtualizedContainerService.HintSize="1546,4497" sap2010:WorkflowViewState.IdRef="Sequence_30">
+  <Sequence sap2010:Annotation.AnnotationText="추출한 Dictionary 데이터를 DataTable에 추가 " DisplayName="MenuDT에 결과 데이터 업데이트 " sap:VirtualizedContainerService.HintSize="1546,4298" sap2010:WorkflowViewState.IdRef="Sequence_30">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="myDocFolderPath" />
+      <Variable x:TypeArguments="x:String" Name="savedExcelFilePath" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -90,13 +98,13 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="카테고리 메뉴 리스트에서는  카테고리$$메뉴$$가격 포맷으로 순서가 있는 리스트 존재 &#xD;&#xA;이 리스트 한개를 꺼내서 가운데 메뉴 이름을 이용해서 MenuMap에서 해당 메뉴에 연결된 옵션메뉴를 구하고 &#xD;&#xA;옵션 메뉴에서 Keys를 통해서 옵션그룹과 옵션그룹+&quot;.opt&quot; 를 구분해서 해당 옵션그룹에 있는 내용인 모든 옵션메뉴와 가격을 출력 한다. " DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1504,3597" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[CategoryMenuList]">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="카테고리 메뉴 리스트에서는  카테고리$$메뉴$$가격 포맷으로 순서가 있는 리스트 존재 &#xA;이 리스트 한개를 꺼내서 가운데 메뉴 이름을 이용해서 MenuMap에서 해당 메뉴에 연결된 옵션메뉴를 구하고 &#xA;옵션 메뉴에서 Keys를 통해서 옵션그룹과 옵션그룹+&quot;.opt&quot; 를 구분해서 해당 옵션그룹에 있는 내용인 모든 옵션메뉴와 가격을 출력 한다. " DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1504,3300" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[CategoryMenuList]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1468,3416" sap2010:WorkflowViewState.IdRef="Sequence_31">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1468,3119" sap2010:WorkflowViewState.IdRef="Sequence_31">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:String[]" Name="parts" />
               <Variable x:TypeArguments="x:String" Name="categoryName" />
@@ -165,7 +173,7 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[parts.Count]" sap:VirtualizedContainerService.HintSize="1426,435" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+            <Switch x:TypeArguments="x:Int32" DisplayName="Switch" Expression="[parts.Count]" sap:VirtualizedContainerService.HintSize="1426,138" sap2010:WorkflowViewState.IdRef="Switch`1_2">
               <Switch.Default>
                 <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,253" sap2010:WorkflowViewState.IdRef="MultipleAssign_18">
                   <ui:MultipleAssign.AssignOperations>
@@ -621,43 +629,47 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[string.Format( &quot;C:\Temp\Result-{0}.xlsx&quot;, DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;))]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="1504,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="Data\Template\menu_template.xlsx" />
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1504,449" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[string.Format( &quot;C:\Temp\Result-{0}.xlsx&quot;, DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;))]">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1504,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_20">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_84">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[myDocFolderPath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Environment.GetFolderPath( Environment.SpecialFolder.CommonDocuments)]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_85">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[savedExcelFilePath]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Path.Combine( myDocFolderPath, string.Format("{0}-{1}.xlsx", StoreName, DateTime.Now.ToString("yyyy-MM-dd")))]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[savedExcelFilePath]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="1504,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="Data\Template\menu_template.xlsx" />
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1504,350" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[savedExcelFilePath]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="376,340" sap2010:WorkflowViewState.IdRef="Sequence_38">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_38">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <ui:ExcelWriteRange AddHeaders="False" DataTable="[MenuDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="메뉴서식" StartingCell="A2" />
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;잠시 대기&quot;]" />
             <ui:ExcelSaveWorkbook DisplayName="Save Workbook" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelSaveWorkbook_1" />
           </Sequence>
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="1504,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="376,207" sap2010:WorkflowViewState.IdRef="Sequence_39">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:WriteRange AddHeaders="True" DataTable="[MenuDT]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,115" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="메뉴서식" StartingCell="A1" WorkbookPath="result.xlsx" />
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
+    <aa:AttendedRobotStatus DisplayName="Attended Robot Status" ErrorLvl="False" sap:VirtualizedContainerService.HintSize="1504,79" sap2010:WorkflowViewState.IdRef="AttendedRobotStatus_1" InfoLvl="False" Message="[string.Format(&quot;결과 파일({0}-{1}.xlsx)이 내문서 폴더에 저장되었습니다. &quot;, StoreName, DateTime.Now.ToString(&quot;yyyy-MM-dd&quot;))]" WarnLvl="True" />
   </Sequence>
 </Activity>
