@@ -637,7 +637,7 @@
               <OutArgument x:TypeArguments="x:String">[myDocFolderPath]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[Environment.GetFolderPath( Environment.SpecialFolder.CommonDocuments)]</InArgument>
+              <InArgument x:TypeArguments="x:String">[Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments)]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_85">

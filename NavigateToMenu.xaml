@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="ExtractDataFromAndroidApp" this:ExtractDataFromAndroidApp.InputStoreName="교촌치킨 서판교점" this:ExtractDataFromAndroidApp.InputStoreAddress="경기도 성남시 분당구 서판교로 29" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uma="clr-namespace:UiPath.MobileAutomation.Activities;assembly=UiPath.MobileAutomation.Activities" xmlns:umct="clr-namespace:UiPath.MobileAutomation.Contracts.Target;assembly=UiPath.MobileAutomation" xmlns:umm="clr-namespace:UiPath.MobileAutomation.Models;assembly=UiPath.MobileAutomation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="ExtractDataFromAndroidApp" this:ExtractDataFromAndroidApp.InputStoreName="교촌치킨 서판교점" this:ExtractDataFromAndroidApp.InputStoreAddress="경기도 성남시 분당구 서판교로 29" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uma="clr-namespace:UiPath.MobileAutomation.Activities;assembly=UiPath.MobileAutomation.Activities" xmlns:umct="clr-namespace:UiPath.MobileAutomation.Contracts.Target;assembly=UiPath.MobileAutomation" xmlns:umm="clr-namespace:UiPath.MobileAutomation.Models;assembly=UiPath.MobileAutomation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="InputStoreName" Type="InArgument(x:String)" />
     <x:Property Name="InputStoreAddress" Type="InArgument(x:String)" />
@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>702,3454</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>702,3682</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractDataFromAndroidApp_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -79,41 +79,71 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtractDataFromAndroidApp" sap:VirtualizedContainerService.HintSize="494,3289" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExtractDataFromAndroidApp" sap:VirtualizedContainerService.HintSize="556,3517" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uma:MobileDeviceConnection CollectPageSource="{x:Null}" CollectScreenshot="{x:Null}" MirroringEnabled="{x:Null}" StartPage="{x:Null}" AppiumUrl="[DeviceInfo(&quot;appiumUrl&quot;)]" DisplayName="Charles" sap:VirtualizedContainerService.HintSize="452,3197" sap2010:WorkflowViewState.IdRef="MobileDeviceConnection_1" LoggingEnabled="False" LoggingFolderPath="C:\Users\KnWorks\AppData\Local\Temp\UiPath Mobile Automation Logs" SingleInstanceForDevelopment="True" VideoRecordingEnabled="False" VideoRecordingQuality="Normal" VideoRecordingTimeLimit="600" WaitForPageUpdateDevelopment="True">
+    <uma:MobileDeviceConnection CollectPageSource="{x:Null}" CollectScreenshot="{x:Null}" MirroringEnabled="{x:Null}" StartPage="{x:Null}" AppiumUrl="[DeviceInfo(&quot;appiumUrl&quot;)]" DisplayName="Charles" sap:VirtualizedContainerService.HintSize="514,3425" sap2010:WorkflowViewState.IdRef="MobileDeviceConnection_1" LoggingEnabled="False" LoggingFolderPath="C:\Users\KnWorks\AppData\Local\Temp\UiPath Mobile Automation Logs" SingleInstanceForDevelopment="True" VideoRecordingEnabled="False" VideoRecordingQuality="Normal" VideoRecordingTimeLimit="600" WaitForPageUpdateDevelopment="True">
       <uma:MobileDeviceConnection.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="platformName">Android</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="platformVersion">[DeviceInfo("platformVersion")]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="deviceName">[DeviceInfo("deviceName")]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="udid">[DeviceInfo("udid")]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="platformName">
+          <Literal x:TypeArguments="x:String">Android</Literal>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="platformVersion">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DeviceInfo(&quot;platformVersion&quot;)" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="deviceName">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DeviceInfo(&quot;deviceName&quot;)" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="udid">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="DeviceInfo(&quot;udid&quot;)" />
+        </InArgument>
       </uma:MobileDeviceConnection.Arguments>
       <uma:MobileDeviceConnection.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="UiPathScopeContext" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="418,3093" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="480,3321" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uma:ManageOtherApp Result="{x:Null}" App="com.sampleapp" Command="Terminate" DisplayName="Manage Other App" sap:VirtualizedContainerService.HintSize="376,59" sap2010:WorkflowViewState.IdRef="ManageOtherApp_2" RequiresInitialization="False" />
-            <uma:ManageOtherApp Result="{x:Null}" sap2010:Annotation.AnnotationText="배달의 민족 실행 " App="com.sampleapp" Command="Activate" DisplayName="Manage Other App" sap:VirtualizedContainerService.HintSize="376,90" sap2010:WorkflowViewState.IdRef="ManageOtherApp_1" RequiresInitialization="False">
+            <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,287" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+              <TryCatch.Try>
+                <uma:ManageOtherApp Result="{x:Null}" App="com.sampleapp" Command="Terminate" DisplayName="Manage Other App" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ManageOtherApp_2" RequiresInitialization="False" />
+              </TryCatch.Try>
+              <TryCatch.Catches>
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="404,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ActivityAction x:TypeArguments="s:Exception">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                    </ActivityAction.Argument>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;기존 프로그램 종료... &quot;]" />
+                  </ActivityAction>
+                </Catch>
+              </TryCatch.Catches>
+            </TryCatch>
+            <uma:ManageOtherApp Result="{x:Null}" sap2010:Annotation.AnnotationText="배달의 민족 실행 " App="com.sampleapp" Command="Activate" DisplayName="Manage Other App" sap:VirtualizedContainerService.HintSize="438,90" sap2010:WorkflowViewState.IdRef="ManageOtherApp_1" RequiresInitialization="False">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uma:ManageOtherApp>
-            <Sequence DisplayName="레코딩된 액션 임포트" sap:VirtualizedContainerService.HintSize="376,2772" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Sequence DisplayName="레코딩된 액션 임포트" sap:VirtualizedContainerService.HintSize="438,2772" sap2010:WorkflowViewState.IdRef="Sequence_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
