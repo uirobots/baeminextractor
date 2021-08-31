@@ -1,14 +1,2 @@
 
 appium -p 10001 --default-capabilities "{\"systemPort\": 8201 }" --relaxed-security --allow-insecure chromedriver_autodownload
-
-
-
-<mbl android:className='androidx.recyclerview.widget.RecyclerView' />
-<mbl android:className='android.view.ViewGroup' />
-
-<mbl android:className='androidx.recyclerview.widget.RecyclerView' id='com.sampleapp:id/content_recyclerview' />
-<mbl android:className='android.widget.FrameLayout' idx='1' />
-
-<mbl android:className='android.widget.TextView' id='com.sampleapp:id/foodNameTextview' text='교촌발사믹치킨' />
-
-<mbl android:className='android.widget.TextView' id='com.sampleapp:id/foodNameTextview' text='교촌발사믹치킨' />
