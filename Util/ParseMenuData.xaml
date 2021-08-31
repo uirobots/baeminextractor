@@ -9,10 +9,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>871,3548</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1345,2932</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractMenuData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="30">
+    <scg:List x:TypeArguments="x:String" Capacity="60">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -43,10 +43,11 @@
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="30">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -74,11 +75,12 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtractMenuData" sap:VirtualizedContainerService.HintSize="686,3383" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExtractMenuData" sap:VirtualizedContainerService.HintSize="709.5,2994" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sx:XmlDocument" Name="doc" />
       <Variable x:TypeArguments="sx:XmlNodeList" Name="nodes" />
@@ -87,13 +89,14 @@
       <Variable x:TypeArguments="x:String" Name="price" />
       <Variable x:TypeArguments="x:Int32" Name="rowIdx" />
       <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of string)]" Name="curMenuList" />
+      <Variable x:TypeArguments="x:String" Name="valueType" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="667.5,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -115,13 +118,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="644,134" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Load">
+    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="667.5,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Load">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="sx:XmlDocument">[doc]</InArgument>
       </InvokeMethod.TargetObject>
       <InArgument x:TypeArguments="x:String">[InputXmlFile]</InArgument>
     </InvokeMethod>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="667.5,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -129,13 +132,13 @@
               <OutArgument x:TypeArguments="sx:XmlNodeList">[nodes]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="sx:XmlNodeList">[doc.SelectNodes("//android.widget.TextView[@resource-id='com.sampleapp:id/foodNameTextview' or @resource-id='com.sampleapp:id/menu_price_textview' or @resource-id='com.sampleapp:id/menu_group_name_textview' or @resource-id='com.sampleapp:id/menuNameTextView' or @resource-id='com.sampleapp:id/menuPriceTextView' ]")]</InArgument>
+              <InArgument x:TypeArguments="sx:XmlNodeList">[doc.SelectNodes("//android.widget.TextView[@resource-id='com.sampleapp:id/foodNameTextview' or @resource-id='com.sampleapp:id/menu_price_textview' or @resource-id='com.sampleapp:id/menu_group_name_textview' or @resource-id='com.sampleapp:id/menuNameTextView' or @resource-id='com.sampleapp:id/menuPriceTextView' or @resource-id='com.sampleapp:id/menuGroupNameTextView' ]")]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="667.5,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
@@ -162,23 +165,37 @@
               <InArgument x:TypeArguments="x:String">[string.Empty]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[valueType]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">category</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="sx:XmlNode" CurrentIndex="[rowIdx]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="644,1556" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[nodes]">
+    <ui:ForEach x:TypeArguments="sx:XmlNode" CurrentIndex="[rowIdx]" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="667.5,1650" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[nodes]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sx:XmlNode">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sx:XmlNode" Name="node" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="608,1432" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="631.5,1525" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[node.Attributes(&quot;resource-id&quot;).Value.ToString]" sap:VirtualizedContainerService.HintSize="566,1340" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-              <Sequence x:Key="com.sampleapp:id/menu_group_name_textview" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[node.Attributes(&quot;resource-id&quot;).Value.ToString]" sap:VirtualizedContainerService.HintSize="589.5,1433" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Sequence x:Key="com.sampleapp:id/menu_group_name_textview" sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="ExistCategory" />
                 </Sequence.Variables>
@@ -187,6 +204,14 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_18">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[valueType]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">category</InArgument>
+                  </Assign.Value>
+                </Assign>
                 <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[categoryName]</OutArgument>
@@ -195,9 +220,9 @@
                     <InArgument x:TypeArguments="x:String">[node.Attributes("text").Value.ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;메뉴 그룹 &gt; &quot; +categoryName]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;메뉴 그룹 &gt; &quot; +categoryName]" />
               </Sequence>
-              <Sequence x:Key="com.sampleapp:id/foodNameTextview" sap:VirtualizedContainerService.HintSize="376,387" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence x:Key="com.sampleapp:id/foodNameTextview" sap:VirtualizedContainerService.HintSize="376,489" sap2010:WorkflowViewState.IdRef="Sequence_4">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataRow" Name="new_row_last" />
                 </Sequence.Variables>
@@ -207,6 +232,14 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_19">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[valueType]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">menu</InArgument>
+                  </Assign.Value>
+                </Assign>
                 <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[menuName]</OutArgument>
@@ -215,8 +248,8 @@
                     <InArgument x:TypeArguments="x:String">[node.Attributes("text").Value.ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;\t상품명: &quot; + menuName]" />
-                <AddToCollection x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="현재 페이지에 있는 메뉴를 선택해야 하기 때문에 유지 " Collection="[curMenuList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[menuName]">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;\t상품명: &quot; + menuName]" />
+                <AddToCollection x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="현재 페이지에 있는 메뉴를 선택해야 하기 때문에 유지 " Collection="[curMenuList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="AddToCollection`1_2" Item="[menuName]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -224,7 +257,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                 </AddToCollection>
               </Sequence>
-              <Sequence x:Key="com.sampleapp:id/menu_price_textview" sap:VirtualizedContainerService.HintSize="526,1046" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <Sequence x:Key="com.sampleapp:id/menu_price_textview" sap:VirtualizedContainerService.HintSize="549.5,1131" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataRow" Name="new_row" />
                   <Variable x:TypeArguments="x:String" Name="formatName" />
@@ -236,7 +269,22 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                <If Condition="[valueType = &quot;price&quot; or string.IsNullOrEmpty(menuName)]" DisplayName="If &gt; 이전에도 가격이 나왔다면 첫번째만 처리 " sap:VirtualizedContainerService.HintSize="507.5,220" sap2010:WorkflowViewState.IdRef="If_15">
+                  <If.Then>
+                    <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_2" />
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262.5,60" sap2010:WorkflowViewState.IdRef="Assign_16">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[valueType]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">price</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <Assign sap:VirtualizedContainerService.HintSize="507.5,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[price]</OutArgument>
                   </Assign.To>
@@ -244,156 +292,8 @@
                     <InArgument x:TypeArguments="x:String">[Regex.Replace( IF( node.Attributes("text").Value.Contains(":"), node.Attributes("text").Value.Split(":".ToCharArray).Last, node.Attributes("text").Value), "\D", "")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;\t\t가격: &quot; + price]" />
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-                  <ui:CommentOut.Body>
-                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="1049,1519" sap2010:WorkflowViewState.IdRef="Sequence_12">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If sap2010:Annotation.AnnotationText="메뉴이름이 없고 가격이 나왔다면 마지막 메뉴 이름을 사용해야 한다. " Condition="[string.IsNullOrEmpty( menuName)]" sap:VirtualizedContainerService.HintSize="771,1427" sap2010:WorkflowViewState.IdRef="If_1">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If.Then>
-                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                            <ui:CommentOut.Body>
-                              <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="376,263" sap2010:WorkflowViewState.IdRef="Sequence_9">
-                                <sap:WorkflowViewStateService.ViewState>
-                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                  </scg:Dictionary>
-                                </sap:WorkflowViewStateService.ViewState>
-                                <ui:MultipleAssign sap2010:Annotation.AnnotationText="이전 메뉴를 찾아서 업데이트 &#xA;" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,171" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
-                                  <ui:MultipleAssign.AssignOperations>
-                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
-                                        <ui:AssignOperation.To>
-                                          <OutArgument x:TypeArguments="sd:DataRow">[new_row]</OutArgument>
-                                        </ui:AssignOperation.To>
-                                        <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="sd:DataRow">[InputDataTable.Rows( InputDatatable.Rows.Count -1)]</InArgument>
-                                        </ui:AssignOperation.Value>
-                                      </ui:AssignOperation>
-                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
-                                        <ui:AssignOperation.To>
-                                          <OutArgument x:TypeArguments="x:Object">[new_row(2)]</OutArgument>
-                                        </ui:AssignOperation.To>
-                                        <ui:AssignOperation.Value>
-                                          <InArgument x:TypeArguments="x:Object">[price]</InArgument>
-                                        </ui:AssignOperation.Value>
-                                      </ui:AssignOperation>
-                                    </scg:List>
-                                  </ui:MultipleAssign.AssignOperations>
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                </ui:MultipleAssign>
-                              </Sequence>
-                            </ui:CommentOut.Body>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                          </ui:CommentOut>
-                        </If.Then>
-                        <If.Else>
-                          <Sequence sap:VirtualizedContainerService.HintSize="526,1239" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                            <Sequence.Variables>
-                              <Variable x:TypeArguments="x:Int32" Name="foundRow" />
-                            </Sequence.Variables>
-                            <sap:WorkflowViewStateService.ViewState>
-                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                              </scg:Dictionary>
-                            </sap:WorkflowViewStateService.ViewState>
-                            <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                              <Assign.To>
-                                <OutArgument x:TypeArguments="sd:DataRow">[new_row]</OutArgument>
-                              </Assign.To>
-                              <Assign.Value>
-                                <InArgument x:TypeArguments="sd:DataRow">[InputDataTable.NewRow]</InArgument>
-                              </Assign.Value>
-                            </Assign>
-                            <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[InputDataTable]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="484,291" sap2010:WorkflowViewState.IdRef="LookupDataTable_1" LookupColumnIndex="[1]" LookupValue="[menuName]" RowIndex="[foundRow]" />
-                            <If sap2010:Annotation.AnnotationText="중복되는 메뉴이름이 있다면 일단 무시 " Condition="[foundRow &lt; 0]" sap:VirtualizedContainerService.HintSize="484,716" sap2010:WorkflowViewState.IdRef="If_2">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="376,508" sap2010:WorkflowViewState.IdRef="Sequence_7">
-                                  <sap:WorkflowViewStateService.ViewState>
-                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    </scg:Dictionary>
-                                  </sap:WorkflowViewStateService.ViewState>
-                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,191" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
-                                    <ui:MultipleAssign.AssignOperations>
-                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
-                                          <ui:AssignOperation.To>
-                                            <OutArgument x:TypeArguments="sd:DataRow">[new_row]</OutArgument>
-                                          </ui:AssignOperation.To>
-                                          <ui:AssignOperation.Value>
-                                            <InArgument x:TypeArguments="sd:DataRow">[InputDataTable.NewRow]</InArgument>
-                                          </ui:AssignOperation.Value>
-                                        </ui:AssignOperation>
-                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
-                                          <ui:AssignOperation.To>
-                                            <OutArgument x:TypeArguments="x:Object">[new_row(0)]</OutArgument>
-                                          </ui:AssignOperation.To>
-                                          <ui:AssignOperation.Value>
-                                            <InArgument x:TypeArguments="x:Object">[categoryName]</InArgument>
-                                          </ui:AssignOperation.Value>
-                                        </ui:AssignOperation>
-                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
-                                          <ui:AssignOperation.To>
-                                            <OutArgument x:TypeArguments="x:Object">[new_row(1)]</OutArgument>
-                                          </ui:AssignOperation.To>
-                                          <ui:AssignOperation.Value>
-                                            <InArgument x:TypeArguments="x:Object">[menuName]</InArgument>
-                                          </ui:AssignOperation.Value>
-                                        </ui:AssignOperation>
-                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-                                          <ui:AssignOperation.To>
-                                            <OutArgument x:TypeArguments="x:Object">[new_row(2)]</OutArgument>
-                                          </ui:AssignOperation.To>
-                                          <ui:AssignOperation.Value>
-                                            <InArgument x:TypeArguments="x:Object">[price]</InArgument>
-                                          </ui:AssignOperation.Value>
-                                        </ui:AssignOperation>
-                                      </scg:List>
-                                    </ui:MultipleAssign.AssignOperations>
-                                  </ui:MultipleAssign>
-                                  <ui:AddDataRow ArrayRow="{x:Null}" DataRow="[new_row]" DataTable="[InputDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                                </Sequence>
-                              </If.Then>
-                            </If>
-                          </Sequence>
-                        </If.Else>
-                      </If>
-                    </Sequence>
-                  </ui:CommentOut.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:CommentOut>
-                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="507.5,93" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[string.Format(&quot;{0} &gt; {1} &gt; {2}&quot;, categoryName, menuName, price )]" />
+                <Assign sap:VirtualizedContainerService.HintSize="507.5,60" sap2010:WorkflowViewState.IdRef="Assign_9">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[categoryName]</OutArgument>
                   </Assign.To>
@@ -401,7 +301,7 @@
                     <InArgument x:TypeArguments="x:String">[IF( string.IsNullOrEmpty(categoryName), "대표메뉴", categoryName)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign sap2010:Annotation.AnnotationText="카테고리이름$$메뉴이름$$가격 포맷으로 유지 " sap:VirtualizedContainerService.HintSize="484,102" sap2010:WorkflowViewState.IdRef="Assign_8">
+                <Assign sap2010:Annotation.AnnotationText="카테고리이름$$메뉴이름$$가격 포맷으로 유지 " sap:VirtualizedContainerService.HintSize="507.5,104" sap2010:WorkflowViewState.IdRef="Assign_8">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[formatName]</OutArgument>
                   </Assign.To>
@@ -414,65 +314,14 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <ExistsInCollection x:TypeArguments="x:String" Collection="[CategoryList]" DisplayName="Exists In Collection" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="ExistsInCollection`1_2" Item="[formatName]" Result="[ExistsItem]" />
-                <If Condition="[Not ExistsItem]" DisplayName="If &gt; 없다면 추가 " sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_8">
+                <ExistsInCollection x:TypeArguments="x:String" Collection="[CategoryList]" DisplayName="Exists In Collection" sap:VirtualizedContainerService.HintSize="507.5,22" sap2010:WorkflowViewState.IdRef="ExistsInCollection`1_2" Item="[formatName]" Result="[ExistsItem]" />
+                <If Condition="[Not ExistsItem]" DisplayName="If &gt; 없다면 추가 " sap:VirtualizedContainerService.HintSize="507.5,240" sap2010:WorkflowViewState.IdRef="If_8">
                   <If.Then>
                     <AddToCollection x:TypeArguments="x:String" Collection="[CategoryList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_4" Item="[formatName]" />
                   </If.Then>
                 </If>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CommentOut_5">
-                  <ui:CommentOut.Body>
-                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="755,409" sap2010:WorkflowViewState.IdRef="Sequence_14">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If sap2010:Annotation.AnnotationText="카테" Condition="[CategoryList.Contains( formatName)]" DisplayName="If &gt; 카테고리 찾고 메뉴 리스트에 있는지 보고 추가 " sap:VirtualizedContainerService.HintSize="713,317" sap2010:WorkflowViewState.IdRef="If_5">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If.Then>
-                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
-                            <ui:MultipleAssign.AssignOperations>
-                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
-                                  <ui:AssignOperation.To>
-                                    <OutArgument x:TypeArguments="x:String">[MenuMap(categoryName)(menuName)]</OutArgument>
-                                  </ui:AssignOperation.To>
-                                  <ui:AssignOperation.Value>
-                                    <InArgument x:TypeArguments="x:String">[price]</InArgument>
-                                  </ui:AssignOperation.Value>
-                                </ui:AssignOperation>
-                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
-                                  <ui:AssignOperation.To>
-                                    <OutArgument x:TypeArguments="x:String">[MenuMap(categoryName)(".category")]</OutArgument>
-                                  </ui:AssignOperation.To>
-                                  <ui:AssignOperation.Value>
-                                    <InArgument x:TypeArguments="x:String">[categoryName]</InArgument>
-                                  </ui:AssignOperation.Value>
-                                </ui:AssignOperation>
-                              </scg:List>
-                            </ui:MultipleAssign.AssignOperations>
-                          </ui:MultipleAssign>
-                        </If.Then>
-                        <If.Else>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Warn" Message="[&quot;앗 카테고리에 없는 메뉴가 발견됬네요 ... ....&quot;]" />
-                        </If.Else>
-                      </If>
-                    </Sequence>
-                  </ui:CommentOut.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:CommentOut>
               </Sequence>
-              <Sequence x:Key="com.sampleapp:id/menuNameTextView" sap2010:Annotation.AnnotationText="메뉴라는 탭 메뉴가 없는 매장들" sap:VirtualizedContainerService.HintSize="376,418" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence x:Key="com.sampleapp:id/menuNameTextView" sap2010:Annotation.AnnotationText="메뉴라는 탭 메뉴가 없는 매장들" sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataRow" Name="new_row_last" />
                 </Sequence.Variables>
@@ -483,6 +332,14 @@
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_21">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[valueType]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">menu</InArgument>
+                  </Assign.Value>
+                </Assign>
                 <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_10">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[menuName]</OutArgument>
@@ -491,8 +348,8 @@
                     <InArgument x:TypeArguments="x:String">[node.Attributes("text").Value.ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;\t상품명: &quot; + menuName]" />
-                <AddToCollection x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="현재 페이지에 있는 메뉴를 선택해야 하기 때문에 유지 " Collection="[curMenuList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="AddToCollection`1_5" Item="[menuName]">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;\t상품명: &quot; + menuName]" />
+                <AddToCollection x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="현재 페이지에 있는 메뉴를 선택해야 하기 때문에 유지 " Collection="[curMenuList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="AddToCollection`1_5" Item="[menuName]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -500,7 +357,7 @@
                   </sap:WorkflowViewStateService.ViewState>
                 </AddToCollection>
               </Sequence>
-              <Sequence x:Key="com.sampleapp:id/menuPriceTextView" sap:VirtualizedContainerService.HintSize="526,1046" sap2010:WorkflowViewState.IdRef="Sequence_23">
+              <Sequence x:Key="com.sampleapp:id/menuPriceTextView" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Sequence_23">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="sd:DataRow" Name="new_row" />
                   <Variable x:TypeArguments="x:String" Name="formatName" />
@@ -508,11 +365,26 @@
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                <If Condition="[valueType = &quot;price&quot; or string.IsNullOrEmpty(menuName)]" DisplayName="If &gt; 이전에도 가격이 나왔다면 첫번째만 처리, 메뉴가 없거나 " sap:VirtualizedContainerService.HintSize="507.5,220" sap2010:WorkflowViewState.IdRef="If_14">
+                  <If.Then>
+                    <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                  </If.Then>
+                  <If.Else>
+                    <Assign sap:VirtualizedContainerService.HintSize="262.5,60" sap2010:WorkflowViewState.IdRef="Assign_17">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[valueType]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">price</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </If.Else>
+                </If>
+                <Assign sap:VirtualizedContainerService.HintSize="507.5,60" sap2010:WorkflowViewState.IdRef="Assign_11">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[price]</OutArgument>
                   </Assign.To>
@@ -520,16 +392,16 @@
                     <InArgument x:TypeArguments="x:String" xml:space="preserve">[Regex.Replace( IF( node.Attributes("text").Value.ToString.Contains(":"),  node.Attributes("text").Value.ToString.Split(":".ToCharArray).Last, node.Attributes("text").Value.ToString), "\D", "")]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="484,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;\t\t가격: &quot; + price]" />
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CommentOut_7">
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="507.5,93" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[string.Format(&quot;{0} &gt; {1} &gt; {2}&quot;, categoryName, menuName, price )]" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="507.5,22" sap2010:WorkflowViewState.IdRef="CommentOut_7">
                   <ui:CommentOut.Body>
-                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="1049,1519" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="813,1521" sap2010:WorkflowViewState.IdRef="Sequence_21">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <If sap2010:Annotation.AnnotationText="메뉴이름이 없고 가격이 나왔다면 마지막 메뉴 이름을 사용해야 한다. " Condition="[string.IsNullOrEmpty( menuName)]" sap:VirtualizedContainerService.HintSize="771,1427" sap2010:WorkflowViewState.IdRef="If_11">
+                      <If sap2010:Annotation.AnnotationText="메뉴이름이 없고 가격이 나왔다면 마지막 메뉴 이름을 사용해야 한다. " Condition="[string.IsNullOrEmpty( menuName)]" sap:VirtualizedContainerService.HintSize="1007,1434" sap2010:WorkflowViewState.IdRef="If_11">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -538,15 +410,15 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <If.Then>
-                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="CommentOut_6">
                             <ui:CommentOut.Body>
-                              <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="376,263" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                              <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="376,265" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:MultipleAssign sap2010:Annotation.AnnotationText="이전 메뉴를 찾아서 업데이트 &#xA;" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,171" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
+                                <ui:MultipleAssign sap2010:Annotation.AnnotationText="이전 메뉴를 찾아서 업데이트 &#xA;" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,173" sap2010:WorkflowViewState.IdRef="MultipleAssign_12">
                                   <ui:MultipleAssign.AssignOperations>
                                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
@@ -584,7 +456,7 @@
                           </ui:CommentOut>
                         </If.Then>
                         <If.Else>
-                          <Sequence sap:VirtualizedContainerService.HintSize="526,1239" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                          <Sequence sap:VirtualizedContainerService.HintSize="526,1244" sap2010:WorkflowViewState.IdRef="Sequence_20">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:Int32" Name="foundRow" />
                             </Sequence.Variables>
@@ -601,7 +473,7 @@
                                 <InArgument x:TypeArguments="sd:DataRow">[InputDataTable.NewRow]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[InputDataTable]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="484,291" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnIndex="[1]" LookupValue="[menuName]" RowIndex="[foundRow]" />
+                            <ui:LookupDataTable CellValue="{x:Null}" LookupColumnName="{x:Null}" LookupDataColumn="{x:Null}" TargetColumnIndex="{x:Null}" TargetColumnName="{x:Null}" TargetDataColumn="{x:Null}" DataTable="[InputDataTable]" DisplayName="Lookup Data Table" sap:VirtualizedContainerService.HintSize="484,296" sap2010:WorkflowViewState.IdRef="LookupDataTable_2" LookupColumnIndex="[1]" LookupValue="[menuName]" RowIndex="[foundRow]" />
                             <If sap2010:Annotation.AnnotationText="중복되는 메뉴이름이 있다면 일단 무시 " Condition="[foundRow &lt; 0]" sap:VirtualizedContainerService.HintSize="484,716" sap2010:WorkflowViewState.IdRef="If_10">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -669,7 +541,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_13">
+                <Assign sap:VirtualizedContainerService.HintSize="507.5,60" sap2010:WorkflowViewState.IdRef="Assign_13">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[categoryName]</OutArgument>
                   </Assign.To>
@@ -677,7 +549,7 @@
                     <InArgument x:TypeArguments="x:String">[IF( string.IsNullOrEmpty(categoryName), "대표메뉴", categoryName)]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <Assign sap2010:Annotation.AnnotationText="카테고리이름$$메뉴이름$$가격 포맷으로 유지 " sap:VirtualizedContainerService.HintSize="484,102" sap2010:WorkflowViewState.IdRef="Assign_14">
+                <Assign sap2010:Annotation.AnnotationText="카테고리이름$$메뉴이름$$가격 포맷으로 유지 " sap:VirtualizedContainerService.HintSize="507.5,104" sap2010:WorkflowViewState.IdRef="Assign_14">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[formatName]</OutArgument>
                   </Assign.To>
@@ -690,65 +562,14 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </Assign>
-                <ExistsInCollection x:TypeArguments="x:String" Collection="[CategoryList]" DisplayName="Exists In Collection" sap:VirtualizedContainerService.HintSize="484,22" sap2010:WorkflowViewState.IdRef="ExistsInCollection`1_3" Item="[formatName]" Result="[ExistsItem]" />
-                <If Condition="[Not ExistsItem]" DisplayName="If &gt; 없다면 추가 " sap:VirtualizedContainerService.HintSize="484,237" sap2010:WorkflowViewState.IdRef="If_12">
+                <ExistsInCollection x:TypeArguments="x:String" Collection="[CategoryList]" DisplayName="Exists In Collection" sap:VirtualizedContainerService.HintSize="507.5,22" sap2010:WorkflowViewState.IdRef="ExistsInCollection`1_3" Item="[formatName]" Result="[ExistsItem]" />
+                <If Condition="[Not ExistsItem]" DisplayName="If &gt; 없다면 추가 " sap:VirtualizedContainerService.HintSize="507.5,240" sap2010:WorkflowViewState.IdRef="If_12">
                   <If.Then>
                     <AddToCollection x:TypeArguments="x:String" Collection="[CategoryList]" DisplayName="Add To Collection" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="AddToCollection`1_6" Item="[formatName]" />
                   </If.Then>
                 </If>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="484,51" sap2010:WorkflowViewState.IdRef="CommentOut_8">
-                  <ui:CommentOut.Body>
-                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="755,409" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <If sap2010:Annotation.AnnotationText="카테" Condition="[CategoryList.Contains( formatName)]" DisplayName="If &gt; 카테고리 찾고 메뉴 리스트에 있는지 보고 추가 " sap:VirtualizedContainerService.HintSize="713,317" sap2010:WorkflowViewState.IdRef="If_13">
-                        <sap:WorkflowViewStateService.ViewState>
-                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                          </scg:Dictionary>
-                        </sap:WorkflowViewStateService.ViewState>
-                        <If.Then>
-                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
-                            <ui:MultipleAssign.AssignOperations>
-                              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_32">
-                                  <ui:AssignOperation.To>
-                                    <OutArgument x:TypeArguments="x:String">[MenuMap(categoryName)(menuName)]</OutArgument>
-                                  </ui:AssignOperation.To>
-                                  <ui:AssignOperation.Value>
-                                    <InArgument x:TypeArguments="x:String">[price]</InArgument>
-                                  </ui:AssignOperation.Value>
-                                </ui:AssignOperation>
-                                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
-                                  <ui:AssignOperation.To>
-                                    <OutArgument x:TypeArguments="x:String">[MenuMap(categoryName)(".category")]</OutArgument>
-                                  </ui:AssignOperation.To>
-                                  <ui:AssignOperation.Value>
-                                    <InArgument x:TypeArguments="x:String">[categoryName]</InArgument>
-                                  </ui:AssignOperation.Value>
-                                </ui:AssignOperation>
-                              </scg:List>
-                            </ui:MultipleAssign.AssignOperations>
-                          </ui:MultipleAssign>
-                        </If.Then>
-                        <If.Else>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Warn" Message="[&quot;앗 카테고리에 없는 메뉴가 발견됬네요 ... ....&quot;]" />
-                        </If.Else>
-                      </If>
-                    </Sequence>
-                  </ui:CommentOut.Body>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:CommentOut>
               </Sequence>
-              <Sequence x:Key="com.sampleapp:id/menuGroupNameTextView" sap:VirtualizedContainerService.HintSize="376,283" sap2010:WorkflowViewState.IdRef="Sequence_24">
+              <Sequence x:Key="com.sampleapp:id/menuGroupNameTextView" sap:VirtualizedContainerService.HintSize="376,385" sap2010:WorkflowViewState.IdRef="Sequence_24">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="ExistCategory" />
                 </Sequence.Variables>
@@ -757,6 +578,14 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_20">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[valueType]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">category</InArgument>
+                  </Assign.Value>
+                </Assign>
                 <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_15">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[categoryName]</OutArgument>
@@ -765,7 +594,7 @@
                     <InArgument x:TypeArguments="x:String">[node.Attributes("text").Value.ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;메뉴 그룹 &gt; &quot; +categoryName]" />
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;메뉴 그룹 &gt; &quot; +categoryName]" />
               </Sequence>
             </Switch>
           </Sequence>
@@ -778,7 +607,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="667.5,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
@@ -800,83 +629,100 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
-      <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="sx:XmlNodeList">[nodes]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="sx:XmlNodeList">[doc.SelectNodes("//android.widget.LinearLayout[@resource-id='com.sampleapp:id/action_bar_root']")]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-        </scg:List>
-      </ui:MultipleAssign.AssignOperations>
-    </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="sx:XmlNode" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="644,707" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[nodes]">
-      <ui:ForEach.Body>
-        <ActivityAction x:TypeArguments="sx:XmlNode">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="sx:XmlNode" Name="node" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="526,583" sap2010:WorkflowViewState.IdRef="Sequence_15">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="x:String" Name="bounds" />
-            </Sequence.Variables>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <If Condition="[node.Attributes(&quot;bounds&quot;) isNot Nothing]" sap:VirtualizedContainerService.HintSize="484,491" sap2010:WorkflowViewState.IdRef="If_9">
-              <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,314" sap2010:WorkflowViewState.IdRef="Sequence_16">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="667.5,330" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="376,252" sap2010:WorkflowViewState.IdRef="Sequence_25">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="sx:XmlNodeList">[nodes]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="sx:XmlNodeList">[doc.SelectNodes("//android.widget.LinearLayout[@resource-id='com.sampleapp:id/action_bar_root']")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:ForEach x:TypeArguments="sx:XmlNode" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[nodes]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="sx:XmlNode">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sx:XmlNode" Name="node" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="526,586" sap2010:WorkflowViewState.IdRef="Sequence_15">
                   <Sequence.Variables>
-                    <Variable x:TypeArguments="s:String[]" Name="xywh" />
+                    <Variable x:TypeArguments="x:String" Name="bounds" />
                   </Sequence.Variables>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
-                    <ui:MultipleAssign.AssignOperations>
-                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[bounds]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[node.Attributes("bounds").Value.ToString]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="s:String[]">[xywh]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="s:String[]">[bounds.Split("[],".ToCharArray)]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:Int32">[Height]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32( xywh( xywh.Length -2))]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                      </scg:List>
-                    </ui:MultipleAssign.AssignOperations>
-                  </ui:MultipleAssign>
-                  <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                  <If Condition="[node.Attributes(&quot;bounds&quot;) isNot Nothing]" sap:VirtualizedContainerService.HintSize="484,494" sap2010:WorkflowViewState.IdRef="If_9">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,314" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="s:String[]" Name="xywh" />
+                        </Sequence.Variables>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[bounds]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String">[node.Attributes("bounds").Value.ToString]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="s:String[]">[xywh]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="s:String[]">[bounds.Split("[],".ToCharArray)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[Height]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">[Convert.ToInt32( xywh( xywh.Length -2))]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                        <ui:Break sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Break_1" />
+                      </Sequence>
+                    </If.Then>
+                  </If>
                 </Sequence>
-              </If.Then>
-            </If>
-          </Sequence>
-        </ActivityAction>
-      </ui:ForEach.Body>
-    </ui:ForEach>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+        </Sequence>
+      </ui:CommentOut.Body>
+    </ui:CommentOut>
   </Sequence>
 </Activity>

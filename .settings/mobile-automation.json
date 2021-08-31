@@ -5,14 +5,14 @@
     {
       "Name": "CharlseS9+",
       "Description": null,
-      "Url": "http://localhost:10001/wd/hub",
+      "Url": "http://192.168.143.1:10001/wd/hub",
       "PlatformName": "Android",
-      "PlatformVersion": "9",
+      "PlatformVersion": "11",
       "DeviceName": "CharelsS9+",
       "SingleInstance": null,
       "WaitForPageUpdate": true,
       "Capabilities": {
-        "udid": "21349b70ff0c7ece"
+        "udid": "R3CR50AHL4T"
       },
       "GeoLocation": null,
       "LoggingModel": {
