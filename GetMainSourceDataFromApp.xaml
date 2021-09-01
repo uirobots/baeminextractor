@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1764,7911.5</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1764,8954</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractDetailMenuFromApp_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="43">
@@ -56,7 +56,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="72">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -93,9 +93,10 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Web</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="배달의민족앱에서 선택한 매장에서 메뉴로 이동해서 메뉴 데이터를 추출하는 부분 " DisplayName="ExtractDetailMenuFromApp" sap:VirtualizedContainerService.HintSize="1774,7746.5" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="배달의민족앱에서 선택한 매장에서 메뉴로 이동해서 메뉴 데이터를 추출하는 부분 " DisplayName="ExtractDetailMenuFromApp" sap:VirtualizedContainerService.HintSize="1774,8789" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="MenuDT" />
       <Variable x:TypeArguments="uma:MobileDevice" Name="mdmConn" />
@@ -127,7 +128,7 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <uma:MobileDeviceConnection MirroringEnabled="{x:Null}" StartPage="{x:Null}" AppiumUrl="[DeviceInfo(&quot;appiumUrl&quot;)]" Close="Never" CollectPageSource="AfterActivity" CollectScreenshot="Never" DisplayName="CharlseS9+" sap:VirtualizedContainerService.HintSize="1732,7323.5" sap2010:WorkflowViewState.IdRef="MobileDeviceConnection_1" LoggingEnabled="True" LoggingFolderPath="C:\Users\KnWorks\AppData\Local\Temp\UiPath Mobile Automation Logs" OutputConnection="[mdmConn]" SingleInstanceForDevelopment="True" VideoRecordingEnabled="False" VideoRecordingQuality="Normal" VideoRecordingTimeLimit="600" WaitForPageUpdateDevelopment="True">
+    <uma:MobileDeviceConnection MirroringEnabled="{x:Null}" StartPage="{x:Null}" AppiumUrl="[DeviceInfo(&quot;appiumUrl&quot;)]" Close="Never" CollectPageSource="AfterActivity" CollectScreenshot="Never" DisplayName="CharlseS9+" sap:VirtualizedContainerService.HintSize="1732,8366" sap2010:WorkflowViewState.IdRef="MobileDeviceConnection_1" LoggingEnabled="True" LoggingFolderPath="C:\Users\KnWorks\AppData\Local\Temp\UiPath Mobile Automation Logs" OutputConnection="[mdmConn]" SingleInstanceForDevelopment="True" VideoRecordingEnabled="False" VideoRecordingQuality="Normal" VideoRecordingTimeLimit="600" WaitForPageUpdateDevelopment="True">
       <uma:MobileDeviceConnection.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="platformName">Android</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="platformVersion">[DeviceInfo("platformVersion")]</InArgument>
@@ -139,17 +140,13 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="UiPathScopeContext" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="레코딩된 액션 임포트" sap:VirtualizedContainerService.HintSize="1698,7219.5" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="레코딩된 액션 임포트" sap:VirtualizedContainerService.HintSize="1698,8262" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Default="False" Name="IsDone" />
               <Variable x:TypeArguments="x:Int32" Default="1" Name="pageNo" />
               <Variable x:TypeArguments="x:String" Name="optionSwipe" />
               <Variable x:TypeArguments="x:Boolean" Name="ExistTabMenu" />
-              <Variable x:TypeArguments="x:String" Name="lastCategoryName">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:String">대표메뉴</Literal>
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:String" Default="대표메뉴" Name="lastCategoryName" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -161,7 +158,7 @@
                 <umm:Target Accuracy="0.8" DesignTimeRectangle="0, 85, 120, 48" FriendlyName="Element Exists" FullSelector="&lt;mbl android:className='android.widget.LinearLayout' id='com.sampleapp:id/tab_layout' /&gt;&lt;mbl android:className='android.view.ViewGroup' idx='1' /&gt;" FuzzyAccuracy="0.5" FuzzySelector="&lt;mbl android:className='android.widget.LinearLayout' id='com.sampleapp:id/tab_layout' accessibilityId='' text='' /&gt;&lt;mbl android:className='android.view.ViewGroup' id='' accessibilityId='' text='' check:text='' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAWgAAACQCAYAAAAlU/EVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAU9SURBVHhe7d3Pi41tHMfxyxMlFGqwQMlCFhYsLGyUZPwopWz8SPaysbEgf8CsrRVSimwoxYZkw8ZKFjZSspjJr5nIQvPMjEv3Yc4c55kZzmeeeb3qyv3V3d1h8Tad67jOgsHBwdFSrVq1ql4B0AtjTa5XpfxTfwUgjEADhBJogFACDRBKoAFC/fQpjr6+vnoFQC8MDQ3VKz9BA8QSaIBQAg0QSqABQgk0QCiBBggl0AChBBoglEADhBJogFACDRBKoAFCCTRAKIEGCCXQAKEEGiCUQAOEEmiAUAINEEqgAUIJNEAogQYIJdAAoQQaIJRAA4QSaIBQAg0QSqABQgk0QCiBBggl0AChBBoglEADhBJogFACDRBKoAFCCTRAKIEGCCXQAKEEGiCUQAOEEmiAUAINEEqgAUIJNECoBYODg6P1uvT19dUryPHo0aNy69atOjXOnDlTNmzYUCf4fxgaGqpXAk0PjYyMlD179tSpcerUqXLixIk6lXL16tVy8uTJOjWePXtWtm7dWqffe/HiRbl8+XKdGkeOHCnbtm2rE/SWQBPh48ePZcWKFXVqXLx4sZw+fbpOsxfohw8fll27dtWpcfv27XLw4ME6QW8JNF178uRJuXfvXp2mb8eOHZN+WhZomKw10GU80D8W/OrKlSvj/4DPeA0MDNQnNj58+ND23rFA1zu+m+o1jAW63tGdBw8etH3OWKDrHdB7rU32KQ6AUAINEEqgAUIJNNNy7dq1ic3DX9edO3fqHcBMCTTTsnPnztLf3z9p7d69u94BzJRAA4QSaIBQAg0QSqABQgk0QChncdDRVOdgvH79uqxfv75OjS9fvpQlS5bUqXH+/PmJU+paDQ8Pl82bN9ep8bfP4jh06FDZuHFjnf6sdevWTRyTClNxFgddm+ocjLFA1zt+9vnz57b3/5f1t8/i+Jtr79699dVAe61N9hYHQCiBBggl0AChbBLS0WxtEq5cuXLS4fyjo6Pl1atXdWr8qU3Ct2/fTnwBQS8tX7687UYl/GCTkK7N1iZhwoH9MBe0NtlbHAChBBoglEADhLJJSEeztUk4MDBQzp49W6fv/tS3en/69KlcuHChTnPD+N/P4sWL68R8ZpOQrs3FTcL6Q8ecWsPDw/XVM9+1NtlbHAChBBoglEADhLJJSEdTbdAdO3asLFu2rE6Nb9++lUuXLtWp8Tc3Cb9+/Vru379fp87Gv538xo0bdWpcv369LF26tE6dvX//vu3rG/+9w4cP16mz/fv3l4ULF9aJ+cwmIV2baoPuv67U/0l47ty5ts9+9+5dveP33rx50/YZ7f7M8DutTfYWB0AogQYIJdAAoQSajvbt2zexGTfTdfz48fpEoFsCTUerV6+e+KTETNfatWvrE4FuCTRAKIEGCCXQAKEEGiCUQAOEEmiAUAINEEqg6Znxr8a6e/fupNXf31/vgPlNoOmZRYsWTRyz+evatGlTvQPmN+dBE+/58+fl6dOndWocOHCgrFmzpk7T8/jx4/Ly5cs6NY4ePdr1l7iOjIyUmzdv1qmxZcuWsn379jpBd1rPgxZogCCtgfYWB0AogQYIJdAAoQQaIJRAA4QSaIBQAg0QSqABQgk0QCiBBggl0AChBBoglEADhBJogFACDRBKoAFCCTRAKIEGCCXQAKEEGiCUQAOEEmiAUAINEEqgAUIJNEAogQYIJdAAoQQaIJRAA4QSaIBQAg0QSqABQgk0QCiBBggl0AChBBoglEADhBJogFACDRBKoAFCCTRAKIEGCCXQAKEEGiBSKf8C0tvn61Yptj8AAAAASUVORK5CYII=" InformativeScreenshot="cf12883f8904ade3c9dd4d62e58e6766.png" Occurence="0" Text="" />
               </uma:ElementExists.Target>
             </uma:ElementExists>
-            <If Condition="[ExistTabMenu]" sap:VirtualizedContainerService.HintSize="1656,351" sap2010:WorkflowViewState.IdRef="If_22">
+            <If Condition="[ExistTabMenu]" sap:VirtualizedContainerService.HintSize="1656,348" sap2010:WorkflowViewState.IdRef="If_22">
               <If.Then>
                 <uma:Tap DelayAfter="{x:Null}" DelayBefore="{x:Null}" Timeout="{x:Null}" DisplayName="Tap" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="Tap_3" RequiresInitialization="False" TapType="Single">
                   <uma:Tap.Target>
@@ -174,9 +171,9 @@
                 </uma:Tap>
               </If.Then>
             </If>
-            <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="1656,6427.5" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+            <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="1656,7474" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
               <ui:InterruptibleDoWhile.Body>
-                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1620,6260.5" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1620,7309" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="MainPageFilePath" />
                     <Variable x:TypeArguments="s:String[]" Name="currentPageMenus" />
@@ -191,7 +188,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:CreateDirectory ContinueOnError="True" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="1578,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[StoreName]" />
+                  <ui:CreateDirectory ContinueOnError="True" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="1578,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[StoreName]" />
                   <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1578,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
@@ -207,27 +204,17 @@
                     </ui:MultipleAssign.AssignOperations>
                   </ui:MultipleAssign>
                   <uma:GetPageSource DisplayName="Get Page Source" sap:VirtualizedContainerService.HintSize="1578,22" sap2010:WorkflowViewState.IdRef="GetPageSource_1" PageSourceFilePath="[MainPageFilePath]" RequiresInitialization="False" />
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ParseMenuData workflow" sap:VirtualizedContainerService.HintSize="1578,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Util\ParseMenuData.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ParseMenuData workflow" sap:VirtualizedContainerService.HintSize="1578,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Util\ParseMenuData.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="InputXmlFile">
-                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MainPageFilePath" />
-                      </InArgument>
-                      <InArgument x:TypeArguments="scg:List(x:String)" x:Key="CategoryList">
-                        <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="mainCategoryList" />
-                      </InArgument>
-                      <InOutArgument x:TypeArguments="x:String" x:Key="LastCategoryName">
-                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="lastCategoryName" />
-                      </InOutArgument>
-                      <OutArgument x:TypeArguments="s:String[]" x:Key="CurrentMenuArray">
-                        <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="currentPageMenus" />
-                      </OutArgument>
-                      <OutArgument x:TypeArguments="x:Int32" x:Key="Height">
-                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="screenHeight" />
-                      </OutArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="InputXmlFile">[MainPageFilePath]</InArgument>
+                      <InArgument x:TypeArguments="scg:List(x:String)" x:Key="CategoryList">[mainCategoryList]</InArgument>
+                      <InOutArgument x:TypeArguments="x:String" x:Key="LastCategoryName">[lastCategoryName]</InOutArgument>
+                      <OutArgument x:TypeArguments="s:String[]" x:Key="CurrentMenuArray">[currentPageMenus]</OutArgument>
+                      <OutArgument x:TypeArguments="x:Int32" x:Key="Height">[screenHeight]</OutArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:Comment sap:VirtualizedContainerService.HintSize="1578,55.5" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 마지막 페이지 체크하는 로직 수정 " />
-                  <If sap2010:Annotation.AnnotationText="스크롤이 끝났는지 판단하는 조건 " Condition="[pageNo &gt; 1]" DisplayName="If &gt; 스크롤 완료 여부 " sap:VirtualizedContainerService.HintSize="1578,66" sap2010:WorkflowViewState.IdRef="If_15">
+                  <ui:Comment sap:VirtualizedContainerService.HintSize="1578,55" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// 마지막 페이지 체크하는 로직 수정 " />
+                  <If sap2010:Annotation.AnnotationText="스크롤이 끝났는지 판단하는 조건 " Condition="[pageNo &gt; 1]" DisplayName="If &gt; 스크롤 완료 여부 " sap:VirtualizedContainerService.HintSize="1578,93" sap2010:WorkflowViewState.IdRef="If_15">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -262,16 +249,16 @@
                       </Sequence>
                     </If.Then>
                   </If>
-                  <If sap2010:Annotation.AnnotationText="현재 Appium 세션정보 가져오기 " Condition="[string.IsNullOrEmpty( sessionId)]" DisplayName="If &gt; Appium 세선 처리 " sap:VirtualizedContainerService.HintSize="1578,66" sap2010:WorkflowViewState.IdRef="If_21">
+                  <If sap2010:Annotation.AnnotationText="현재 Appium 세션정보 가져오기 " Condition="[string.IsNullOrEmpty( sessionId)]" DisplayName="If &gt; Appium 세선 처리 " sap:VirtualizedContainerService.HintSize="1578,1093" sap2010:WorkflowViewState.IdRef="If_21">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
-                      <Sequence sap2010:Annotation.AnnotationText="Appium 서버의 session 정보 가져오기 " DisplayName="Do" sap:VirtualizedContainerService.HintSize="426,909" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                      <Sequence sap2010:Annotation.AnnotationText="Appium 서버의 session 정보 가져오기 " DisplayName="Do" sap:VirtualizedContainerService.HintSize="426,886" sap2010:WorkflowViewState.IdRef="Sequence_41">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="s:String[]" Name="logTypes" />
                           <Variable x:TypeArguments="x:String" Name="serverLogContent" />
@@ -282,17 +269,17 @@
                             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:Delete ContinueOnError="True" sap:VirtualizedContainerService.HintSize="384,80" sap2010:WorkflowViewState.IdRef="Delete_1" Path="server.log" />
+                        <ui:Delete ContinueOnError="True" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="Delete_1" Path="server.log" />
                         <uma:GetLogs AppendToLogFile="False" DisplayName="Get Logs" sap:VirtualizedContainerService.HintSize="384,22" sap2010:WorkflowViewState.IdRef="GetLogs_2" LogFilePath="server.log" LogType="server" RequiresInitialization="False" />
-                        <ui:ReadTextFile Content="[serverLogContent]" DisplayName="Read Text File" Encoding="UTF-8" FileName="server.log" sap:VirtualizedContainerService.HintSize="384,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
+                        <ui:ReadTextFile Content="[serverLogContent]" DisplayName="Read Text File" Encoding="UTF-8" FileName="server.log" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_3" />
                         <ui:InvokeCode ContinueOnError="{x:Null}" Code="var matches = System.Text.RegularExpressions.Regex.Matches(serverLogContents, &quot;.*Session created with session id:(.*)&quot;);&#xA;Console.WriteLine( &quot; 결과 : &quot; + matches.Count.ToString());&#xA;var sid = matches[matches.Count -1].Groups[1].Value.Trim();&#xA;// this is for sauce labs&#xA;//sid = sid.Replace(&quot;-&quot;, &quot;&quot;);&#xA;sessionId = sid;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="384,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
                           <ui:InvokeCode.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="serverLogContents">[serverLogContent]</InArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="sessionId">[sessionId]</OutArgument>
                           </ui:InvokeCode.Arguments>
                         </ui:InvokeCode>
-                        <ui:ReadTextFile Content="[swipeFormat]" DisplayName="Read Text File" Encoding="UTF-8" FileName="Data\swipe_format.conf" sap:VirtualizedContainerService.HintSize="384,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
-                        <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 1800-&gt;200 으로 이동 " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="384,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                        <ui:ReadTextFile Content="[swipeFormat]" DisplayName="Read Text File" Encoding="UTF-8" FileName="Data\swipe_format.conf" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
+                        <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 1800-&gt;200 으로 이동 (Galaxy S20)&#xD;&#xA;Nexus 5X  ( 1600 -&gt; 200)  ( Nexus 5X)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="384,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
@@ -300,15 +287,7 @@
                                   <OutArgument x:TypeArguments="x:String">[optionSwipe]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[swipeFormat.Replace("__Y1__", "200")]</InArgument>
-                                </ui:AssignOperation.Value>
-                              </ui:AssignOperation>
-                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_43">
-                                <ui:AssignOperation.To>
-                                  <OutArgument x:TypeArguments="x:String">[optionSwipe]</OutArgument>
-                                </ui:AssignOperation.To>
-                                <ui:AssignOperation.Value>
-                                  <InArgument x:TypeArguments="x:String">[optionSwipe.Replace( "__Y2__", "1800")]</InArgument>
+                                  <InArgument x:TypeArguments="x:String">[swipeFormat.Replace("__Y1__", "200").Replace("__Y2__", "1500")]</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                             </scg:List>
@@ -322,19 +301,19 @@
                       </Sequence>
                     </If.Then>
                   </If>
-                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1578,4995" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[currentPageMenus]">
+                  <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="1578,5012" sap2010:WorkflowViewState.IdRef="ForEach`1_6" Values="[currentPageMenus]">
                     <ui:ForEach.Body>
                       <ActivityAction x:TypeArguments="x:String">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="x:String" Name="menuItem" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1542,4871" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                        <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="1542,4889" sap2010:WorkflowViewState.IdRef="Sequence_17">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <If sap2010:Annotation.AnnotationText="이미 처리한 메뉴에 대해서 SKIP" Condition="[MenuMap.ContainsKey( menuItem)]" DisplayName="If &gt; 해당 메뉴에 옵션 메뉴가 있다면 일단 무시 " sap:VirtualizedContainerService.HintSize="1500,66" sap2010:WorkflowViewState.IdRef="If_18">
+                          <If sap2010:Annotation.AnnotationText="이미 처리한 메뉴에 대해서 SKIP" Condition="[MenuMap.ContainsKey( menuItem)]" DisplayName="If &gt; 해당 메뉴에 옵션 메뉴가 있다면 일단 무시 " sap:VirtualizedContainerService.HintSize="1500,93" sap2010:WorkflowViewState.IdRef="If_18">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -354,7 +333,7 @@
                               </Sequence>
                             </If.Then>
                           </If>
-                          <Sequence sap2010:Annotation.AnnotationText="해당 메뉴 선택 후 상세 메뉴 페이지로 이동 " sap:VirtualizedContainerService.HintSize="1500,4673" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                          <Sequence sap2010:Annotation.AnnotationText="해당 메뉴 선택 후 상세 메뉴 페이지로 이동 " sap:VirtualizedContainerService.HintSize="1500,4664" sap2010:WorkflowViewState.IdRef="Sequence_29">
                             <Sequence.Variables>
                               <Variable x:TypeArguments="x:String" Name="menuName" />
                               <Variable x:TypeArguments="x:Boolean" Name="ElementFound" />
@@ -373,9 +352,9 @@
                                 <InArgument x:TypeArguments="x:String">[menuItem]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1458,93" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;선택해야 할 메뉴 : &quot; + menuName]" />
-                            <ui:Comment sap:VirtualizedContainerService.HintSize="1458,75" sap2010:WorkflowViewState.IdRef="Comment_6" Text="// 메뉴 탭이 있는 경우와 없는 경우 구분해서 처리해줘야 함 " />
-                            <If sap2010:Annotation.AnnotationText="메뉴탭이 있는지 없는지 체크 " Condition="[ExistTabMenu]" sap:VirtualizedContainerService.HintSize="1458,53" sap2010:WorkflowViewState.IdRef="If_23">
+                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1458,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;선택해야 할 메뉴 : &quot; + menuName]" />
+                            <ui:Comment sap:VirtualizedContainerService.HintSize="1458,74" sap2010:WorkflowViewState.IdRef="Comment_6" Text="// 메뉴 탭이 있는 경우와 없는 경우 구분해서 처리해줘야 함 " />
+                            <If sap2010:Annotation.AnnotationText="메뉴탭이 있는지 없는지 체크 " Condition="[ExistTabMenu]" sap:VirtualizedContainerService.HintSize="1458,82" sap2010:WorkflowViewState.IdRef="If_23">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -406,7 +385,7 @@
                                 </uma:ElementExists>
                               </If.Else>
                             </If>
-                            <If sap2010:Annotation.AnnotationText="메뉴템 여부에 따라 Tap Selector 다르게 구성해줘야 함&#xD;&#xA;메뉴가 전부 보이지 않는 경우 살찍 위로 올려줘야 함 " Condition="[ElementFound]" sap:VirtualizedContainerService.HintSize="1458,4109" sap2010:WorkflowViewState.IdRef="If_14">
+                            <If sap2010:Annotation.AnnotationText="메뉴템 여부에 따라 Tap Selector 다르게 구성해줘야 함&#xA;메뉴가 전부 보이지 않는 경우 살찍 위로 올려줘야 함 " Condition="[ElementFound]" sap:VirtualizedContainerService.HintSize="1458,4074" sap2010:WorkflowViewState.IdRef="If_14">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -415,19 +394,19 @@
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
                               <If.Then>
-                                <Sequence sap:VirtualizedContainerService.HintSize="1037,3906" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                <Sequence sap:VirtualizedContainerService.HintSize="1037,3875" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="995,563" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="995,556" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                                     <TryCatch.Variables>
                                       <Variable x:TypeArguments="x:String" Name="execRespText" />
                                       <Variable x:TypeArguments="x:Int32" Name="execStatusCode" />
                                     </TryCatch.Variables>
                                     <TryCatch.Try>
-                                      <If Condition="[ExistTabMenu]" sap:VirtualizedContainerService.HintSize="713,331" sap2010:WorkflowViewState.IdRef="If_24">
+                                      <If Condition="[ExistTabMenu]" sap:VirtualizedContainerService.HintSize="713,329" sap2010:WorkflowViewState.IdRef="If_24">
                                         <If.Then>
                                           <uma:Tap DelayAfter="{x:Null}" DelayBefore="{x:Null}" Timeout="{x:Null}" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="Tap_9" RequiresInitialization="False" TapType="Single">
                                             <uma:Tap.Target>
@@ -453,7 +432,7 @@
                                       </If>
                                     </TryCatch.Try>
                                     <TryCatch.Catches>
-                                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="717,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="717,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -487,7 +466,7 @@
                                                 </scg:List>
                                               </ui:MultipleAssign.AssignOperations>
                                             </ui:MultipleAssign>
-                                            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Custom Swipe 액션 (살짝밀어올리기)" Body="[execSwipe]" BodyFormat="application/json" DisplayName="HTTP Request" EndPoint="[string.Format( &quot;{0}/session/{1}/touch/perform&quot;, DeviceInfo(&quot;appiumUrl&quot;), sessionId)]" sap:VirtualizedContainerService.HintSize="713,66" sap2010:WorkflowViewState.IdRef="HttpClient_3" Method="POST" Result="[execRespText]" StatusCode="[execStatusCode]" TimeoutMS="6000">
+                                            <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Custom Swipe 액션 (살짝밀어올리기)" Body="[execSwipe]" BodyFormat="application/json" DisplayName="HTTP Request" EndPoint="[string.Format( &quot;{0}/session/{1}/touch/perform&quot;, DeviceInfo(&quot;appiumUrl&quot;), sessionId)]" sap:VirtualizedContainerService.HintSize="713,64" sap2010:WorkflowViewState.IdRef="HttpClient_3" Method="POST" Result="[execRespText]" StatusCode="[execStatusCode]" TimeoutMS="6000">
                                               <ui:HttpClient.Attachments>
                                                 <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
                                               </ui:HttpClient.Attachments>
@@ -509,7 +488,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                             </ui:HttpClient>
-                                            <If Condition="[ExistTabMenu]" DisplayName="If &gt; 살짝 보이지 않아서 생긴 경우" sap:VirtualizedContainerService.HintSize="713,331" sap2010:WorkflowViewState.IdRef="If_25">
+                                            <If Condition="[ExistTabMenu]" DisplayName="If &gt; 살짝 보이지 않아서 생긴 경우" sap:VirtualizedContainerService.HintSize="713,329" sap2010:WorkflowViewState.IdRef="If_25">
                                               <If.Then>
                                                 <uma:Tap DelayAfter="{x:Null}" DelayBefore="{x:Null}" Timeout="{x:Null}" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="Tap_11" RequiresInitialization="False" TapType="Single">
                                                   <uma:Tap.Target>
@@ -538,8 +517,8 @@
                                       </Catch>
                                     </TryCatch.Catches>
                                   </TryCatch>
-                                  <ui:Comment sap:VirtualizedContainerService.HintSize="995,75" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 메뉴 선택해서 해당 메뉴에 따른 옵션 메뉴를 가져오는 부분 " />
-                                  <Sequence sap2010:Annotation.AnnotationText="메뉴 항목 선택 후 상세 메뉴 페이지로 이동 &#xA;상세 페이지를 스크롤링 하면서 데이터를 수집해서 Dictionary 형태로 관리 &#xA;스크롤링이 끝난 후 Dictionary 형태의 데이터를 엑셀 DataTable로 정리 " DisplayName="GetOptionSourceFromApp" sap:VirtualizedContainerService.HintSize="995,2884" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                  <ui:Comment sap:VirtualizedContainerService.HintSize="995,74" sap2010:WorkflowViewState.IdRef="Comment_2" Text="// 메뉴 선택해서 해당 메뉴에 따른 옵션 메뉴를 가져오는 부분 " />
+                                  <Sequence sap2010:Annotation.AnnotationText="메뉴 항목 선택 후 상세 메뉴 페이지로 이동 &#xA;상세 페이지를 스크롤링 하면서 데이터를 수집해서 Dictionary 형태로 관리 &#xA;스크롤링이 끝난 후 Dictionary 형태의 데이터를 엑셀 DataTable로 정리 " DisplayName="GetOptionSourceFromApp" sap:VirtualizedContainerService.HintSize="995,2861" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:Int32" Name="foundRow" />
                                       <Variable x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))" Name="optionMap" />
@@ -552,8 +531,8 @@
                                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <ui:CreateDirectory ContinueOnError="True" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="953,80" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[string.Format(&quot;{0}\{1}&quot;, StoreName, MenuName)]" />
-                                    <Sequence sap2010:Annotation.AnnotationText="상세 메뉴 페이지를 처음부터 끝까지 스크롤링 진행하면서 메뉴에 딸린 옵션 데이터 처리 " DisplayName="메뉴 상세 페이지 옵션 메뉴 추출" sap:VirtualizedContainerService.HintSize="953,2308.5" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                    <ui:CreateDirectory ContinueOnError="True" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="953,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_3" Path="[string.Format(&quot;{0}\{1}&quot;, StoreName, MenuName)]" />
+                                    <Sequence sap2010:Annotation.AnnotationText="상세 메뉴 페이지를 처음부터 끝까지 스크롤링 진행하면서 메뉴에 딸린 옵션 데이터 처리 " DisplayName="메뉴 상세 페이지 옵션 메뉴 추출" sap:VirtualizedContainerService.HintSize="953,2291" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="x:Boolean" Name="detailPageDone" />
                                         <Variable x:TypeArguments="x:String" Name="pageFilePath" />
@@ -612,9 +591,9 @@
                                           </scg:List>
                                         </ui:MultipleAssign.AssignOperations>
                                       </ui:MultipleAssign>
-                                      <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="옵션 메뉴 상세 페이지 추출 " DisplayName="Do While" sap:VirtualizedContainerService.HintSize="911,1923.5" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
+                                      <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="옵션 메뉴 상세 페이지 추출 " DisplayName="Do While" sap:VirtualizedContainerService.HintSize="911,1906" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
                                         <ui:InterruptibleDoWhile.Body>
-                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="875,1725.5" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="875,1710" sap2010:WorkflowViewState.IdRef="Sequence_21">
                                             <Sequence.Variables>
                                               <Variable x:TypeArguments="x:String" Name="currentMD5" />
                                             </Sequence.Variables>
@@ -632,9 +611,9 @@
                                               </Assign.Value>
                                             </Assign>
                                             <uma:GetPageSource DisplayName="Get Page Source" sap:VirtualizedContainerService.HintSize="833,22" sap2010:WorkflowViewState.IdRef="GetPageSource_3" PageSourceFilePath="[pageFilePath]" RequiresInitialization="False" />
-                                            <If Condition="[detailPageNo &gt; 1]" sap:VirtualizedContainerService.HintSize="833,292" sap2010:WorkflowViewState.IdRef="If_19">
+                                            <If Condition="[detailPageNo &gt; 1]" sap:VirtualizedContainerService.HintSize="833,288" sap2010:WorkflowViewState.IdRef="If_19">
                                               <If.Then>
-                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckLastPage workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Util\CheckLastPage.xaml">
+                                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckLastPage workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Util\CheckLastPage.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
                                                     <InArgument x:TypeArguments="x:String" x:Key="CurrentFilePath">[string.Format("{0}\{1}\option_{2}.xml", StoreName, MenuName, detailPageNo)]</InArgument>
                                                     <InArgument x:TypeArguments="x:String" x:Key="LastFilePath">[string.Format("{0}\{1}\option_{2}.xml", StoreName, MenuName, detailPageNo-1)]</InArgument>
@@ -643,7 +622,7 @@
                                                 </ui:InvokeWorkflowFile>
                                               </If.Then>
                                             </If>
-                                            <If sap2010:Annotation.AnnotationText="처리할 페이지가 있다면 상세 페이지 읽어서 처리 " Condition="[Not detailPageDone]" DisplayName="If &gt; 처리할 페이지가 남아 있다면 " sap:VirtualizedContainerService.HintSize="833,1139.5" sap2010:WorkflowViewState.IdRef="If_17">
+                                            <If sap2010:Annotation.AnnotationText="처리할 페이지가 있다면 상세 페이지 읽어서 처리 " Condition="[Not detailPageDone]" DisplayName="If &gt; 처리할 페이지가 남아 있다면 " sap:VirtualizedContainerService.HintSize="833,1128" sap2010:WorkflowViewState.IdRef="If_17">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -652,7 +631,7 @@
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
                                               <If.Then>
-                                                <Sequence sap:VirtualizedContainerService.HintSize="797,929.5" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                <Sequence sap:VirtualizedContainerService.HintSize="797,921" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                                   <Sequence.Variables>
                                                     <Variable x:TypeArguments="x:Int32" Name="statusCode" />
                                                     <Variable x:TypeArguments="x:String" Name="respText" />
@@ -663,36 +642,26 @@
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ParseOptionMenuData workflow" sap:VirtualizedContainerService.HintSize="755,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Util\ParseOptionMenuData.xaml">
+                                                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ParseOptionMenuData workflow" sap:VirtualizedContainerService.HintSize="755,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Util\ParseOptionMenuData.xaml">
                                                     <ui:InvokeWorkflowFile.Arguments>
-                                                      <InArgument x:TypeArguments="x:String" x:Key="InputXmlFile">
-                                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="pageFilePath" />
-                                                      </InArgument>
-                                                      <InArgument x:TypeArguments="x:String" x:Key="CurrentMenuName">
-                                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="MenuName" />
-                                                      </InArgument>
-                                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))" x:Key="OptionMap">
-                                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))" ExpressionText="optionMap" />
-                                                      </InArgument>
-                                                      <InOutArgument x:TypeArguments="x:String" x:Key="OptionGroupName">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="optGrpName" />
-                                                      </InOutArgument>
-                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="LastPage">
-                                                        <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="singlePage" />
-                                                      </OutArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="InputXmlFile">[pageFilePath]</InArgument>
+                                                      <InArgument x:TypeArguments="x:String" x:Key="CurrentMenuName">[MenuName]</InArgument>
+                                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, x:String))" x:Key="OptionMap">[optionMap]</InArgument>
+                                                      <InOutArgument x:TypeArguments="x:String" x:Key="OptionGroupName">[optGrpName]</InOutArgument>
+                                                      <OutArgument x:TypeArguments="x:Boolean" x:Key="LastPage">[singlePage]</OutArgument>
                                                     </ui:InvokeWorkflowFile.Arguments>
                                                   </ui:InvokeWorkflowFile>
-                                                  <ui:Comment sap:VirtualizedContainerService.HintSize="755,94.5" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// 스크롤에 대해서는 단말 해상도 별로 차이가 있을 수 있음&#xA;// 현재는 Galaxy S20 모델에 맞게 작성 됨  " />
-                                                  <If Condition="[Not singlePage]" DisplayName="If &gt; 옵션메뉴가 한 페이지 나오는지 체크 " sap:VirtualizedContainerService.HintSize="755,550" sap2010:WorkflowViewState.IdRef="If_26">
+                                                  <ui:Comment sap:VirtualizedContainerService.HintSize="755,93" sap2010:WorkflowViewState.IdRef="Comment_3" Text="// 스크롤에 대해서는 단말 해상도 별로 차이가 있을 수 있음&#xA;// 현재는 Galaxy S20 모델에 맞게 작성 됨  " />
+                                                  <If Condition="[Not singlePage]" DisplayName="If &gt; 옵션메뉴가 한 페이지 나오는지 체크 " sap:VirtualizedContainerService.HintSize="755,544" sap2010:WorkflowViewState.IdRef="If_26">
                                                     <If.Then>
-                                                      <Sequence sap:VirtualizedContainerService.HintSize="376,391" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                                      <Sequence sap:VirtualizedContainerService.HintSize="376,387" sap2010:WorkflowViewState.IdRef="Sequence_43">
                                                         <sap:WorkflowViewStateService.ViewState>
                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                           </scg:Dictionary>
                                                         </sap:WorkflowViewStateService.ViewState>
-                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Warn" Message="[string.Format( &quot;{0}/session/{1}/touch/perform&quot;, DeviceInfo(&quot;appiumUrl&quot;), sessionId)]" />
-                                                        <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Custom Swipe 액션 (살짝밀어올리기)" Body="[optionSwipe]" BodyFormat="application/json" DisplayName="HTTP Request" EndPoint="[string.Format( &quot;{0}/session/{1}/touch/perform&quot;, DeviceInfo(&quot;appiumUrl&quot;), sessionId)]" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" Result="[respText]" StatusCode="[statusCode]" TimeoutMS="6000">
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Warn" Message="[string.Format( &quot;{0}/session/{1}/touch/perform&quot;, DeviceInfo(&quot;appiumUrl&quot;), sessionId)]" />
+                                                        <ui:HttpClient ClientCertificate="{x:Null}" ClientCertificatePassword="{x:Null}" ConsumerKey="{x:Null}" ConsumerSecret="{x:Null}" ContinueOnError="{x:Null}" OAuth1Token="{x:Null}" OAuth1TokenSecret="{x:Null}" OAuth2Token="{x:Null}" Password="{x:Null}" ResourcePath="{x:Null}" ResponseHeaders="{x:Null}" SecureClientCertificatePassword="{x:Null}" SecurePassword="{x:Null}" Username="{x:Null}" AcceptFormat="JSON" sap2010:Annotation.AnnotationText="Custom Swipe 액션 (살짝밀어올리기)" Body="[optionSwipe]" BodyFormat="application/json" DisplayName="HTTP Request" EndPoint="[string.Format( &quot;{0}/session/{1}/touch/perform&quot;, DeviceInfo(&quot;appiumUrl&quot;), sessionId)]" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="HttpClient_1" Method="POST" Result="[respText]" StatusCode="[statusCode]" TimeoutMS="6000">
                                                           <ui:HttpClient.Attachments>
                                                             <scg:Dictionary x:TypeArguments="x:String, InArgument(x:String)" />
                                                           </ui:HttpClient.Attachments>
@@ -758,7 +727,7 @@
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:InterruptibleDoWhile>
                                     </Sequence>
-                                    <ui:Comment sap:VirtualizedContainerService.HintSize="953,94.5" sap2010:WorkflowViewState.IdRef="Comment_4" Text="// 엑세파일로 저장하는 부분에 대해서 업데이트 필요, 그룹핑이 제대로 되지 않는 것으로 보임 " />
+                                    <ui:Comment sap:VirtualizedContainerService.HintSize="953,93" sap2010:WorkflowViewState.IdRef="Comment_4" Text="// 엑세파일로 저장하는 부분에 대해서 업데이트 필요, 그룹핑이 제대로 되지 않는 것으로 보임 " />
                                     <ui:MultipleAssign sap2010:Annotation.AnnotationText="해당 메뉴에 대해서 옵션을 등록 함 " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="953,129" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
                                       <ui:MultipleAssign.AssignOperations>
                                         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
@@ -791,14 +760,14 @@
                                 </Sequence>
                               </If.Then>
                               <If.Else>
-                                <Sequence sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_28">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Warn" Message="[string.Format(&quot;{0} 을 찾지 못함.&quot;, menuName)]" />
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Warn" Message="[string.Format(&quot;{0} 을 찾지 못함.&quot;, menuName)]" />
                                 </Sequence>
                               </If.Else>
                             </If>
@@ -807,7 +776,7 @@
                       </ActivityAction>
                     </ui:ForEach.Body>
                   </ui:ForEach>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 2000-&gt;700 으로 이동 " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1578,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 2000-&gt;700 으로 이동 (Galaxy S20)&#xD;&#xA;1700 -&gt; 650 ( Nexus X5) " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1578,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_44">
@@ -815,15 +784,7 @@
                             <OutArgument x:TypeArguments="x:String">[mainSwipe]</OutArgument>
                           </ui:AssignOperation.To>
                           <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[swipeFormat.Replace("__Y1__", "700")]</InArgument>
-                          </ui:AssignOperation.Value>
-                        </ui:AssignOperation>
-                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_45">
-                          <ui:AssignOperation.To>
-                            <OutArgument x:TypeArguments="x:String">[mainSwipe]</OutArgument>
-                          </ui:AssignOperation.To>
-                          <ui:AssignOperation.Value>
-                            <InArgument x:TypeArguments="x:String">[mainSwipe.Replace( "__Y2__", "2000")]</InArgument>
+                            <InArgument x:TypeArguments="x:String">[swipeFormat.Replace("__Y1__", "650").Replace( "__Y2__", "1700")]</InArgument>
                           </ui:AssignOperation.Value>
                         </ui:AssignOperation>
                       </scg:List>
@@ -876,20 +837,12 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:InterruptibleDoWhile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke MergeMenuOptionResultToMenuDT workflow" sap:VirtualizedContainerService.HintSize="1656,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MergeMenuOptionResultToMenuDT.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke MergeMenuOptionResultToMenuDT workflow" sap:VirtualizedContainerService.HintSize="1656,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="MergeMenuOptionResultToMenuDT.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="MenuDT">
-                  <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="MenuDT" />
-                </InOutArgument>
-                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="CategoryMenuList">
-                  <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="mainCategoryList" />
-                </InArgument>
-                <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, scg:Dictionary(x:String, x:String)))" x:Key="MenuMap">
-                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, scg:Dictionary(x:String, x:String)))" ExpressionText="MenuMap" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="StoreName">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StoreName" />
-                </InArgument>
+                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="MenuDT">[MenuDT]</InOutArgument>
+                <InArgument x:TypeArguments="scg:List(x:String)" x:Key="CategoryMenuList">[mainCategoryList]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, scg:Dictionary(x:String, x:String)))" x:Key="MenuMap">[MenuMap]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="StoreName">[StoreName]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>
