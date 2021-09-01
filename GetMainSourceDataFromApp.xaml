@@ -2,6 +2,7 @@
   <x:Members>
     <x:Property Name="StoreName" Type="InArgument(x:String)" />
     <x:Property Name="DeviceInfo" Type="InArgument(scg:Dictionary(x:String, x:String))" />
+    <x:Property Name="MDMConn" Type="InArgument(uma:MobileDevice)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -93,13 +94,11 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Web</AssemblyReference>
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="배달의민족앱에서 선택한 매장에서 메뉴로 이동해서 메뉴 데이터를 추출하는 부분 " DisplayName="ExtractDetailMenuFromApp" sap:VirtualizedContainerService.HintSize="1774,8789" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="MenuDT" />
-      <Variable x:TypeArguments="uma:MobileDevice" Name="mdmConn" />
       <Variable x:TypeArguments="scg:List(x:String)" Default="[new List(of string)]" Name="mainCategoryList" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, scg:Dictionary(x:String, scg:Dictionary(x:String, x:String)))" sap2010:Annotation.AnnotationText="{}{메뉴 :  { 옵션그룹 : { 옵션메뉴: 가격 }}}" Default="[new Dictionary(of string, Dictionary(of string, Dictionary(of string, string)))]" Name="MenuMap" />
       <Variable x:TypeArguments="x:String" Name="sessionId" />
@@ -128,7 +127,7 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <uma:MobileDeviceConnection MirroringEnabled="{x:Null}" StartPage="{x:Null}" AppiumUrl="[DeviceInfo(&quot;appiumUrl&quot;)]" Close="Never" CollectPageSource="AfterActivity" CollectScreenshot="Never" DisplayName="CharlseS9+" sap:VirtualizedContainerService.HintSize="1732,8366" sap2010:WorkflowViewState.IdRef="MobileDeviceConnection_1" LoggingEnabled="True" LoggingFolderPath="C:\Users\KnWorks\AppData\Local\Temp\UiPath Mobile Automation Logs" OutputConnection="[mdmConn]" SingleInstanceForDevelopment="True" VideoRecordingEnabled="False" VideoRecordingQuality="Normal" VideoRecordingTimeLimit="600" WaitForPageUpdateDevelopment="True">
+    <uma:MobileDeviceConnection MirroringEnabled="{x:Null}" StartPage="{x:Null}" AppiumUrl="[DeviceInfo(&quot;appiumUrl&quot;)]" Close="Never" CollectPageSource="AfterActivity" CollectScreenshot="Never" DisplayName="CharlseS9+" sap:VirtualizedContainerService.HintSize="1732,8366" sap2010:WorkflowViewState.IdRef="MobileDeviceConnection_1" InputConnection="[mdmConn]" LoggingEnabled="True" LoggingFolderPath="C:\Users\KnWorks\AppData\Local\Temp\UiPath Mobile Automation Logs" SingleInstanceForDevelopment="True" VideoRecordingEnabled="False" VideoRecordingQuality="Normal" VideoRecordingTimeLimit="600" WaitForPageUpdateDevelopment="True">
       <uma:MobileDeviceConnection.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="platformName">Android</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="platformVersion">[DeviceInfo("platformVersion")]</InArgument>
@@ -279,7 +278,7 @@
                           </ui:InvokeCode.Arguments>
                         </ui:InvokeCode>
                         <ui:ReadTextFile Content="[swipeFormat]" DisplayName="Read Text File" Encoding="UTF-8" FileName="Data\swipe_format.conf" sap:VirtualizedContainerService.HintSize="384,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_4" />
-                        <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 1800-&gt;200 으로 이동 (Galaxy S20)&#xD;&#xA;Nexus 5X  ( 1600 -&gt; 200)  ( Nexus 5X)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="384,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
+                        <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 1800-&gt;200 으로 이동 (Galaxy S20)&#xA;Nexus 5X  ( 1600 -&gt; 200)  ( Nexus 5X)" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="384,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_13">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_42">
@@ -776,7 +775,7 @@
                       </ActivityAction>
                     </ui:ForEach.Body>
                   </ui:ForEach>
-                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 2000-&gt;700 으로 이동 (Galaxy S20)&#xD;&#xA;1700 -&gt; 650 ( Nexus X5) " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1578,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
+                  <ui:MultipleAssign sap2010:Annotation.AnnotationText="옵션메뉴는 2000-&gt;700 으로 이동 (Galaxy S20)&#xA;1700 -&gt; 650 ( Nexus X5) " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1578,140" sap2010:WorkflowViewState.IdRef="MultipleAssign_14">
                     <ui:MultipleAssign.AssignOperations>
                       <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                         <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_44">

@@ -12,7 +12,7 @@
       "SingleInstance": null,
       "WaitForPageUpdate": true,
       "Capabilities": {
-        "udid": "R3CR50AHL4T"
+        "udid": "emulator-5554"
       },
       "GeoLocation": null,
       "LoggingModel": {
