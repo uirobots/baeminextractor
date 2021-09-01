@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>957,3007</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1505,3031</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -89,7 +89,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="775,2842" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="775.5,2866" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="android_config" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="deviceInfo" />
@@ -101,39 +101,39 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <If Condition="[string.IsNullOrEmpty( StoreAddress)]" sap:VirtualizedContainerService.HintSize="733,415" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[string.IsNullOrEmpty( StoreAddress)]" sap:VirtualizedContainerService.HintSize="733.5,422" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="데이터를 가져올 매장의 주소를 입력해주세요" Title="매장주소">
+        <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,242" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="데이터를 가져올 매장의 주소를 입력해주세요" Title="매장주소">
           <ui:InputDialog.Result>
             <OutArgument x:TypeArguments="x:String">[StoreAddress]</OutArgument>
           </ui:InputDialog.Result>
         </ui:InputDialog>
       </If.Then>
     </If>
-    <If Condition="[string.IsNullOrEmpty( StoreName)]" sap:VirtualizedContainerService.HintSize="733,415" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[string.IsNullOrEmpty( StoreName)]" sap:VirtualizedContainerService.HintSize="733.5,422" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
-        <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="데이터를 가져올 매장 이름을 입력해주세요" Title="매장이름">
+        <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="334,242" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="데이터를 가져올 매장 이름을 입력해주세요" Title="매장이름">
           <ui:InputDialog.Result>
             <OutArgument x:TypeArguments="x:String">[StoreName]</OutArgument>
           </ui:InputDialog.Result>
         </ui:InputDialog>
       </If.Then>
     </If>
-    <ui:PathExists DisplayName="Path Exists" Exists="[ExistPath]" sap:VirtualizedContainerService.HintSize="733,89" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;android_config.xlsx&quot;)]" PathType="File" />
-    <If Condition="[Not ExistPath]" sap:VirtualizedContainerService.HintSize="733,486" sap2010:WorkflowViewState.IdRef="If_3">
+    <ui:PathExists DisplayName="Path Exists" Exists="[ExistPath]" sap:VirtualizedContainerService.HintSize="733.5,90" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[Path.Combine( Environment.GetFolderPath( Environment.SpecialFolder.MyDocuments), &quot;android_config.xlsx&quot;)]" PathType="File" />
+    <If Condition="[Not ExistPath]" sap:VirtualizedContainerService.HintSize="733.5,490" sap2010:WorkflowViewState.IdRef="If_3">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="426,328" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="426,330" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="384,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;안드로이드 단말 설정 파일이 있는 엑셀 파일을 선택해주세요&quot;]" />
-          <ui:SelectFile DisplayName="Select File" Filter="Excel|*.xlsx;*.xls;*.xlsm;*.xlsb" sap:VirtualizedContainerService.HintSize="384,137" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[android_config]" />
+          <ui:SelectFile DisplayName="Select File" Filter="Excel|*.xlsx;*.xls;*.xlsm;*.xlsb" sap:VirtualizedContainerService.HintSize="384,139" sap2010:WorkflowViewState.IdRef="SelectFile_1" SelectedFile="[android_config]" />
         </Sequence>
       </If.Then>
       <If.Else>
-        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign sap:VirtualizedContainerService.HintSize="262.5,60" sap2010:WorkflowViewState.IdRef="Assign_2">
           <Assign.To>
             <OutArgument x:TypeArguments="x:String">[android_config]</OutArgument>
           </Assign.To>
@@ -143,13 +143,13 @@
         </Assign>
       </If.Else>
     </If>
-    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="733,762" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" ReadOnly="True" Visible="False" WorkbookPath="[android_config]">
+    <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="733.5,764" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" ReadOnly="True" Visible="False" WorkbookPath="[android_config]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="380,653" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="실행" sap:VirtualizedContainerService.HintSize="380.5,655" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="device_config" />
             </Sequence.Variables>
@@ -158,8 +158,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[device_config]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="338,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="settings" />
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:ExcelReadRange Range="{x:Null}" AddHeaders="True" DataTable="[device_config]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="338.5,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="settings" />
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="338.5,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -173,19 +173,19 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[device_config]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="338,324" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[device_config]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="338.5,326" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304,152" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="304.5,152" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign sap:VirtualizedContainerService.HintSize="262.5,60" sap2010:WorkflowViewState.IdRef="Assign_1">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[deviceInfo( row(0).ToString)]</OutArgument>
                       </Assign.To>
@@ -201,7 +201,7 @@
         </ActivityAction>
       </ui:ExcelApplicationScope.Body>
     </ui:ExcelApplicationScope>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NavigateToMenu workflow" sap:VirtualizedContainerService.HintSize="733,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="NavigateToMenu.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NavigateToMenu workflow" sap:VirtualizedContainerService.HintSize="733.5,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="NavigateToMenu.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="InputStoreName">
           <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StoreName" />
@@ -217,7 +217,7 @@
         </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetMainSourceDataFromApp workflow" sap:VirtualizedContainerService.HintSize="733,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GetMainSourceDataFromApp.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetMainSourceDataFromApp workflow" sap:VirtualizedContainerService.HintSize="733.5,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GetMainSourceDataFromApp.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="StoreName">
           <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StoreName" />
@@ -230,6 +230,6 @@
         </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:Delete ContinueOnError="True" sap:VirtualizedContainerService.HintSize="733,79" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[StoreName]" />
+    <ui:Delete ContinueOnError="True" sap:VirtualizedContainerService.HintSize="733.5,80" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[StoreName]" />
   </Sequence>
 </Activity>
