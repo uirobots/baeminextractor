@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1505,3031</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1314,3031</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -203,18 +203,10 @@
     </ui:ExcelApplicationScope>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke NavigateToMenu workflow" sap:VirtualizedContainerService.HintSize="733.5,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="NavigateToMenu.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="InputStoreName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StoreName" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="InputStoreAddress">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StoreAddress" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="DeviceInfo">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="deviceInfo" />
-        </InArgument>
-        <OutArgument x:TypeArguments="uma:MobileDevice" x:Key="MDMConn">
-          <mva:VisualBasicReference x:TypeArguments="uma:MobileDevice" ExpressionText="mdmConn" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="InputStoreName">[StoreName]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="InputStoreAddress">[StoreAddress]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="DeviceInfo">[deviceInfo]</InArgument>
+        <OutArgument x:TypeArguments="uma:MobileDevice" x:Key="MDMConn">[mdmConn]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetMainSourceDataFromApp workflow" sap:VirtualizedContainerService.HintSize="733.5,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GetMainSourceDataFromApp.xaml">
