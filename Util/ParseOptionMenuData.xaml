@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1381,2839</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1505,3600</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ExtractMenuData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="31">
@@ -47,7 +47,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="29">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -76,9 +76,11 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ExtractMenuData" sap:VirtualizedContainerService.HintSize="686,2674" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ExtractMenuData" sap:VirtualizedContainerService.HintSize="772,3435" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sx:XmlDocument" Name="doc" />
       <Variable x:TypeArguments="sx:XmlNodeList" Name="nodes" />
@@ -94,7 +96,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="730,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -124,13 +126,13 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="644,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Load">
+    <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="730,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="Load">
       <InvokeMethod.TargetObject>
         <InArgument x:TypeArguments="sx:XmlDocument">[doc]</InArgument>
       </InvokeMethod.TargetObject>
       <InArgument x:TypeArguments="x:String">[InputXmlFile]</InArgument>
     </InvokeMethod>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="730,98" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -144,7 +146,7 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="644,253" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="730,253" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
@@ -198,20 +200,20 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <ui:ForEach x:TypeArguments="sx:XmlNode" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="644,1334" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[nodes]">
+    <ui:ForEach x:TypeArguments="sx:XmlNode" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="730,2095" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[nodes]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sx:XmlNode">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sx:XmlNode" Name="node" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="608,1209" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="본문" sap:VirtualizedContainerService.HintSize="694,1970" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[node.Attributes(&quot;resource-id&quot;).Value.ToString]" sap:VirtualizedContainerService.HintSize="566,1117" sap2010:WorkflowViewState.IdRef="Switch`1_1">
-              <Sequence x:Key="com.sampleapp:id/optionTitleTextView" sap:VirtualizedContainerService.HintSize="612,1476" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[node.Attributes(&quot;resource-id&quot;).Value.ToString]" sap:VirtualizedContainerService.HintSize="652,1878" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+              <Sequence x:Key="com.sampleapp:id/optionTitleTextView" sap:VirtualizedContainerService.HintSize="612,1645" sap2010:WorkflowViewState.IdRef="Sequence_5">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -250,7 +252,7 @@
                         <OutArgument x:TypeArguments="x:String">[max]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[Regex.Replace( grpName, "\D", "")]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[Regex.Replace( grpName.Split( {"최대"}, StringSplitOptions.RemoveEmptyEntries).Last, "\D", "")]</InArgument>
                       </Assign.Value>
                     </Assign>
                   </If.Then>
@@ -272,23 +274,40 @@
                         <OutArgument x:TypeArguments="x:String">[min]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:String">[Regex.Replace( grpName, "\D", "")]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[Regex.Replace( grpName.Split( {"최소"}, StringSplitOptions.RemoveEmptyEntries).Last, "\D", "")]</InArgument>
                       </Assign.Value>
                     </Assign>
                   </If.Then>
                 </If>
-                <If Condition="[grpName.Length &gt; 4]" sap:VirtualizedContainerService.HintSize="570,240" sap2010:WorkflowViewState.IdRef="If_1">
-                  <If.Then>
-                    <Assign sap:VirtualizedContainerService.HintSize="262.5,60" sap2010:WorkflowViewState.IdRef="Assign_4">
-                      <Assign.To>
-                        <OutArgument x:TypeArguments="x:String">[grpName]</OutArgument>
-                      </Assign.To>
-                      <Assign.Value>
-                        <InArgument x:TypeArguments="x:String" xml:space="preserve">[IF(  grpName.Split().First.ToString.Length &gt; 4,  grpName.Split().First().ToString.Substring(0,4), grpName.Split().First())]</InArgument>
-                      </Assign.Value>
-                    </Assign>
-                  </If.Then>
-                </If>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="570,409" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="526,331" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If Condition="[grpName.Length &gt; 4]" DisplayName="If &gt; 4자로 수정 (필요없음)" sap:VirtualizedContainerService.HintSize="484,239" sap2010:WorkflowViewState.IdRef="If_1">
+                        <If.Then>
+                          <Assign sap:VirtualizedContainerService.HintSize="262.5,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">[grpName]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String" xml:space="preserve">[IF(  grpName.Split().First.ToString.Length &gt; 4,  grpName.Split().First().ToString.Substring(0,4), grpName.Split().First())]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </If.Then>
+                      </If>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ui:CommentOut>
                 <If sap2010:Annotation.AnnotationText="처음 옵션이 나왔다면 생성, 중복해서 나온것은 무시 " Condition="[Not OptionMap.ContainsKey( grpName)]" sap:VirtualizedContainerService.HintSize="570,402" sap2010:WorkflowViewState.IdRef="If_6">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -337,13 +356,13 @@
                   </If.Then>
                 </If>
               </Sequence>
-              <Sequence x:Key="com.sampleapp:id/nameTextView" sap:VirtualizedContainerService.HintSize="304.5,276" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence x:Key="com.sampleapp:id/nameTextView" sap:VirtualizedContainerService.HintSize="304.5,274" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Assign sap:VirtualizedContainerService.HintSize="262.5,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign sap:VirtualizedContainerService.HintSize="512,60" sap2010:WorkflowViewState.IdRef="Assign_2">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[optName]</OutArgument>
                   </Assign.To>
@@ -351,7 +370,7 @@
                     <InArgument x:TypeArguments="x:String">[node.Attributes("text").Value.ToString]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="262.5,22" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,22" sap2010:WorkflowViewState.IdRef="CommentOut_3">
                   <ui:CommentOut.Body>
                     <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="Sequence_13">
                       <sap:WorkflowViewStateService.ViewState>
@@ -369,9 +388,9 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="262.5,22" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="512,22" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                   <ui:CommentOut.Body>
-                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="476,299" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                    <Sequence DisplayName="무시된 액티비티" sap:VirtualizedContainerService.HintSize="476,300" sap2010:WorkflowViewState.IdRef="Sequence_11">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -511,7 +530,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <If sap2010:Annotation.AnnotationText="가격이 있는 항목이 1개 이하라면 싱글 페이지로 간주 " Condition="[itemCount &lt;= 1]" DisplayName="If &gt; 개수가 1개 이하인 경우 단일 페이지로 봄" sap:VirtualizedContainerService.HintSize="644,271" sap2010:WorkflowViewState.IdRef="If_7">
+    <If sap2010:Annotation.AnnotationText="가격이 있는 항목이 1개 이하라면 싱글 페이지로 간주 " Condition="[itemCount &lt;= 1]" DisplayName="If &gt; 개수가 1개 이하인 경우 단일 페이지로 봄" sap:VirtualizedContainerService.HintSize="730,271" sap2010:WorkflowViewState.IdRef="If_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -528,7 +547,7 @@
         </Assign>
       </If.Then>
     </If>
-    <Assign sap2010:Annotation.AnnotationText="마지막 옵션 그룹 이름을 저장해줘야 함 " sap:VirtualizedContainerService.HintSize="644,91" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <Assign sap2010:Annotation.AnnotationText="마지막 옵션 그룹 이름을 저장해줘야 함 " sap:VirtualizedContainerService.HintSize="730,91" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[OptionGroupName]</OutArgument>
       </Assign.To>
