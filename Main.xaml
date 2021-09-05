@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1314,3031</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1387,3031</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="37">
@@ -86,7 +86,6 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap:VirtualizedContainerService.HintSize="775.5,2866" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -211,15 +210,9 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetMainSourceDataFromApp workflow" sap:VirtualizedContainerService.HintSize="733.5,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="GetMainSourceDataFromApp.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="StoreName">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="StoreName" />
-        </InArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="DeviceInfo">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="deviceInfo" />
-        </InArgument>
-        <InArgument x:TypeArguments="uma:MobileDevice" x:Key="MDMConn">
-          <mva:VisualBasicValue x:TypeArguments="uma:MobileDevice" ExpressionText="mdmConn" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="StoreName">[StoreName]</InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="DeviceInfo">[deviceInfo]</InArgument>
+        <InArgument x:TypeArguments="uma:MobileDevice" x:Key="MDMConn">[mdmConn]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:Delete ContinueOnError="True" sap:VirtualizedContainerService.HintSize="733.5,80" sap2010:WorkflowViewState.IdRef="Delete_1" Path="[StoreName]" />
